@@ -62,6 +62,8 @@ var BlogApp = function() {
     	    .use(connect.vhost('blog-webinvader.rhcloud.com', loginApp))
     	    .use(connect.vhost('prasun.io', loginApp))
     	    .use(connect.vhost('www.prasun.io', loginApp))
+    	    .use(connect.vhost('www.prasunsultania.in', loginApp))
+    	    .use(connect.vhost('prasunsultania.in', loginApp))
     	    .use(connect.vhost('localhost.in', securedApp));    	    
     	    
     	    app.listen(process.env.NODEJS_PORT, process.env.NODEJS_IP);
