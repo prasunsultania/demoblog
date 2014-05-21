@@ -11,7 +11,19 @@ module.exports = function(loginApp, rootDir){
     loginApp.use(connect.bodyParser());    
     
     loginApp.get('/', function(req, res){
+    	return res.render('index.ejs',{
+    		message: null    		
+    	});
+    });
+    
+    loginApp.get('/login', function(req, res){
     	return res.render('login.ejs',{
+    		message: null    		
+    	});
+    });
+    
+    loginApp.get('/signup', function(req, res){
+    	return res.render('signup.ejs',{
     		message: null    		
     	});
     });
