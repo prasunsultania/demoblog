@@ -22,6 +22,6 @@
     "chai-as-promised": "4.1.1",
     "karma-chai": "0.1.0",
     "karma-sauce-launcher": "^0.2.8",
-    "karma-webdriver-launcher": "^0.2.0"    
+    "karma-webdriver-launcher": "0.2.0"    
   }
 }
