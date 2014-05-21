@@ -59,7 +59,10 @@ var BlogApp = function() {
     	    
     	    app
     	    .use(connect.vhost('login.localhost.in', loginApp))
-    	    .use(connect.vhost('localhost.in', securedApp));
+    	    .use(connect.vhost('blog-webinvader.rhcloud.com', loginApp))
+    	    .use(connect.vhost('prasun.io', loginApp))
+    	    .use(connect.vhost('www.prasun.io', loginApp))
+    	    .use(connect.vhost('localhost.in', securedApp));    	    
     	    
     	    app.listen(process.env.NODEJS_PORT, process.env.NODEJS_IP);
     	    console.log('%s: Node server started on %s:%s ...', Date(Date.now()), process.env.NODEJS_IP, process.env.NODEJS_PORT);    	    
