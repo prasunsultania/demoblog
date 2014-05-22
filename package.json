@@ -22,7 +22,8 @@
     "passport-facebook": "1.0.3",
     "passport-twitter": "1.0.2",
     "passport-google-oauth": "0.1.5",
-    "ejs": "1.0.0"
+    "ejs": "1.0.0",
+    "mime": "1.2.11"
   },
   "devDependencies": {
     "istanbul": "0.2.10",
