@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+- '0.10'
+script:
+- echo $NODEJS_IP
+notifications:
+  email:
+    - prasun.sultania@gmail.com
+env:
+  global:
+  - NODEJS_IP: 127.0.0.1
+  - NODEJS_PORT: 3000
+  - secure: hEcE3BSDRKaSYH0rNu7ZsF7nZHs+DXlfIAJpJGCOL6cFU3rfKpUgmXTZaGz8tuY/bZXTwN0miDfGtn+7T6gnV/3D4wxVXhBEXDUnWmCOhiDMHkPrmv2zJXiy5WbuPkjc8GCrvRnUrpfo1ETSiqhj5NSlfvWM6r8kQsvXdoYg1kE=
+  - secure: Ye1t4smtC70vmsi57DBL2G6SyAHH9HpyWm3zCQWkRZpseWyidVTaP0qVw1SZ9gSGYdYKLPPcknGv43jq3pKGKXbWKoGkcFdBKHlLSitmbK2OH6JsdWkBV+JiUMjTROywfT9rJHzEWfZyms6C1CLZAfIIR99pduSA+wB5YIWr91Q=
+  - secure: btysrd61OMR+wnEmtlsfHutlRylJy5VTtfXSriV4p6GBFElryIkPGa5Be/VN2z+TYJW9Gig3lXK67KLXnMkst6rQLhYR9ELPI/on8ZLEX+HTJUdYsIigUVFEmzsJ4/rNBiCB4NarcVQuhtoBS+S2f/qYXV5mUOxAwpEApMlZ1yw=
+deploy:
+  provider: openshift
+  user: prasun.sultania@gmail.com
+  password:
+    secure: T0elyXCBgiB7o+0t0W5BNE7iiGGO3MGfVydlw/qOIbPGVYVGX564T1bIa8JL98ewWMTfEww3I0688mEcmoLcGm+yhca+prTDmSIFtli555cryrztU9X9qoMpB9prZIk+mIM5lBUbaC+v9uVOpa7Y6b2Z/63/HXB1KFVwfaWPPgQ=
+  app: blog
+  domain: webinvader
+  on:
+    repo: prasunsultania/demoblog

@@ -25,7 +25,6 @@ build/Release
 node_modules
 
 public/node_modules
-.env.js
 .settings
 .project
 public/bower_components

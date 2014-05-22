@@ -11,7 +11,8 @@ Focusing on TDD and CI
 Overview:
 I have tried keeping front-end and back-end independent of each other. 
 Public pages(that does not require login - signin, signup) are served using ejs, 
-rest all part of the front end is single page app using Angularjs  
+rest all part of the front end is single page app using Angularjs.
+Tech Stack is going to be very MEAN - MongoExpressAngularNode  
 
 Backend:
  PL: Node.js (see package.json for complete dependencies)
