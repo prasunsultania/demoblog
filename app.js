@@ -63,6 +63,7 @@ var BlogApp = function() {
     	    .use(connect.vhost('prasun.io', loginApp))
     	    .use(connect.vhost('www.prasun.io', loginApp))
     	    .use(connect.vhost('www.prasunsultania.in', loginApp))
+    	    .use(connect.vhost('www.prasunsultania.info', loginApp))
     	    .use(connect.vhost('prasunsultania.in', loginApp))
     	    .use(connect.vhost('localhost.in', securedApp));    	    
     	    
