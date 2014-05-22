@@ -1,7 +1,7 @@
 demoproject
 ===========
 
-trying out a few technologies
+trying out a few technologies.
 
 Special thanks to scoth.io for providing code examples, many part of this code is inspired from it.
 
