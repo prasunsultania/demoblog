@@ -1,6 +1,8 @@
 demoproject
 ===========
 
+[![Build Status](https://travis-ci.org/prasunsultania/demoblog.svg?branch=master)](https://travis-ci.org/prasunsultania/demoblog)
+
 trying out a few technologies.
 
 Special thanks to scoth.io for providing code examples, many part of this code is inspired from it.
