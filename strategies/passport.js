@@ -193,9 +193,9 @@ module.exports = function(passport) {
     // TWITTER =================================================================
     // =========================================================================
     passport.use(new TwitterStrategy({
-        consumerKey     : configAuth.twitterAuth.consumerKey,
-        consumerSecret  : configAuth.twitterAuth.consumerSecret,
-        callbackURL     : configAuth.twitterAuth.callbackURL,
+        consumerKey     : process.env.TWITTER_API_KEY,
+        consumerSecret  : process.env.TWITTER_API_SECRET,
+        callbackURL     : process.env.TWITTER_CALLBACK_URL,
         passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     },
     function(req, token, tokenSecret, profile, done) {

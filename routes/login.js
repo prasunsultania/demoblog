@@ -24,6 +24,14 @@ module.exports = function(loginApp, rootDir, passport){
     	})
     );
     
+    loginApp.get('/auth/twitter', passport.authenticate('twitter', { scope : 'email' }));
+    loginApp.get('/auth/twitter/callback',
+    	passport.authenticate('twitter', {
+			successRedirect : '/profile',
+			failureRedirect : '/'
+    	})
+    );
+    
     loginApp.get('/login', function(req, res){
     	return res.render('login.ejs',{
     		message: null    		
