@@ -3,12 +3,12 @@ demoproject
 
 [![Build Status](https://travis-ci.org/prasunsultania/demoblog.svg?branch=master)](https://travis-ci.org/prasunsultania/demoblog)
 
-trying out a few technologies.
+If you are willing to setup a server using MEAN stack, You might find this repository useful.
 
 Special thanks to scoth.io for providing code examples, many part of this code is inspired from it.
 
 I am trying to create a demo blog project using mongoDB, nodejs and Angularjs. 
-Focusing on TDD and CI
+Focusing on TDD, CI, MEAN stack and keeping front-end and back-end decoupled of each other
 
 Overview:
 I have tried keeping front-end and back-end independent of each other. 

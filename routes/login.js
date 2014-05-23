@@ -29,4 +29,6 @@ module.exports = function(loginApp, rootDir){
     });
     
     loginApp.get('/bower_components/*', servePublicFiles.getResource);
+    loginApp.get('/img/*', servePublicFiles.getResource);
+    loginApp.get('/js/*', servePublicFiles.getResource);
 };
