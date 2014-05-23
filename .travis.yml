@@ -11,14 +11,22 @@ notifications:
 env:
   global:
   - NODEJS_IP: 127.0.0.1
-  - NODEJS_PORT: 3000
+  - NODEJS_PORT: 8080
   - NODE_ENV: travis
-  - FB_CALLBACK_URL: http://login.localhost.in:3000/auth/facebook/callback
+  - FB_CALLBACK_URL: http://login.localhost.in:8080/auth/facebook/callback
+  - TWITTER_CALLBACK_URL: http://login.localhost.in:8080/auth/twitter/callback
+  - SESSION_SECRET: ilovetowriteanawesomeblog,
   - secure: hEcE3BSDRKaSYH0rNu7ZsF7nZHs+DXlfIAJpJGCOL6cFU3rfKpUgmXTZaGz8tuY/bZXTwN0miDfGtn+7T6gnV/3D4wxVXhBEXDUnWmCOhiDMHkPrmv2zJXiy5WbuPkjc8GCrvRnUrpfo1ETSiqhj5NSlfvWM6r8kQsvXdoYg1kE=
   - secure: Ye1t4smtC70vmsi57DBL2G6SyAHH9HpyWm3zCQWkRZpseWyidVTaP0qVw1SZ9gSGYdYKLPPcknGv43jq3pKGKXbWKoGkcFdBKHlLSitmbK2OH6JsdWkBV+JiUMjTROywfT9rJHzEWfZyms6C1CLZAfIIR99pduSA+wB5YIWr91Q=
   - secure: btysrd61OMR+wnEmtlsfHutlRylJy5VTtfXSriV4p6GBFElryIkPGa5Be/VN2z+TYJW9Gig3lXK67KLXnMkst6rQLhYR9ELPI/on8ZLEX+HTJUdYsIigUVFEmzsJ4/rNBiCB4NarcVQuhtoBS+S2f/qYXV5mUOxAwpEApMlZ1yw=
   - secure: X73x4mTCv+lm/+2qx4HObbhV58hvqs6vhDed/qbUTghPNHjMYtY7vgjHjgerMlXwzNl98wlVRjqO5+yB9Vv/yytfF8/NWUbAuKsFYXS9Wb5epiFT6N/KL2VSYmqTAnITwF26x157DllUF8Xa1kxgPEGe4Au6IyaaWtcCY+OFyyM=
   - secure: EDTBb6RCJwehXXSILapWbezkd5ZnZjXdQaUZ9/wymd+Taqpc31Hr950yaWmuCqmycBova8dmVd2sgOvP6PskeRD+jT4HoIUGL0EODNAnYC6DYzPXM8bNRAZJrMQoZFz0txGDtbl0e3qvx5qKQX7Cj3d7FTffTqvqihawBMwvDpc=
+  - secure: RiDA0DhJ6XOywLjlB4PDODt+z3pTcm93Ephmzz1Y8n5I8fjgM7ZQL7PwgFk7p793i6ZYzRyWfBiV+FqpTQV/7jey06iuE61OyqEHNwElLVRXJKWB+kvAfMw7OtorEJ6US7NUo6RP+LlQaiYMqePjDbkZhQIRcT9bFGU0eSgBou0=
+  - secure: C7KQPCYnPuYBaqQZvMtrABPliT1lvHyayQbsOZWC+5sKFx1UfaPHSSPOxaPN0gDjTvxhlzGaX1p4zSYLRuVFWEk8hpq1SEmu4W4K6etXlz9LQ2FH85MaicNns3wL2xAMJ0Ino1D412bnHr/tSTcAFo2bqcE7hcv4XQwQA3wWFUc=
+  - secure: gEdToKDMrbTV44jBS0YD/BAs7A+oPIawiGgYt4trlHNT7QUw5cn9eDeiYl0x/XRoGyosTguvhMA0fOgwJQHP8ofBqE5nq0uunlM6zYQCLKz2hjN1TP9SIwztzde3NZadWs7jgamKFx9eyk4N7ASR02emYxr2nbQ4VJf5+T7BRUI=
+  - secure: TqzrU4SYnYvhHp+PpDMyDovfBMLO1B6e2r56TCcCMheP3aR05MkfTltBLJn/cbxT6gPmvoc9qTh9k8Zr5FRt39YOR8JVhra4KKTkT5eFTYOLU3VjHCBtl/4e7dpHn8UpGZGhNYK2jgRt+sVLGeW3gK6SuNkvqcr+LbXxlJA+z40=
+  - secure: ZfrPOkgIsZVgUbINkL4c6DlTO1Iqj0N1Xs+CKFDTZh0XzFDuojilEsguSGJkS9vmMpiSMTcEemYeSA4P2sRajRg4uM0ReDvA7zgCVMIhLeEFP5++m7Oud/kYmBD4tXuqVpv4Ts5FofAlw/HBc1x84cJkUnvN0UM6dIvE4PO4r7I=
+  - secure: bF8AJfvfne+Eal2Y+ow4azi5Zn6lCCKo8X9GqWp4awLhdQCyguk2vX0qpVtwn34dcQlZNHUGn3HorJTJm0WJXMac6FEbpVKwW6hRE1TxAo0WyUoIDcxlpQOHBd7t+Hu5xnLLkpIyqFsYgtxEIyDNpYrH5+sWa0G/iosBf3LT2fo=
 deploy:
   provider: openshift
   user: prasun.sultania@gmail.com

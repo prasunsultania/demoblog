@@ -32,6 +32,14 @@ module.exports = function(loginApp, rootDir, passport){
     	})
     );
     
+    loginApp.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));    
+    loginApp.get('/auth/google/callback',
+	    passport.authenticate('google', {
+	            successRedirect : '/profile',
+	            failureRedirect : '/'
+	    })
+	);
+    
     loginApp.get('/login', function(req, res){
     	return res.render('login.ejs',{
     		message: null    		
