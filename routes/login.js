@@ -12,9 +12,17 @@ module.exports = function(loginApp, rootDir, passport){
     
     loginApp.get('/', function(req, res){
     	return res.render('index.ejs',{
-    		message: null    		
+    		message: null
     	});
     });
+    
+    loginApp.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+    loginApp.get('/auth/facebook/callback',
+    	passport.authenticate('facebook', {
+			successRedirect : '/profile',
+			failureRedirect : '/'
+    	})
+    );
     
     loginApp.get('/login', function(req, res){
     	return res.render('login.ejs',{

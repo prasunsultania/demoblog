@@ -2,20 +2,23 @@ language: node_js
 node_js:
 - '0.10'
 before_script:
-  - node app.js & 
+- node app.js &
 script:
 - echo $NODEJS_IP
 notifications:
   email:
-    - prasun.sultania@gmail.com
+  - prasun.sultania@gmail.com
 env:
   global:
   - NODEJS_IP: 127.0.0.1
   - NODEJS_PORT: 3000
   - NODE_ENV: travis
+  - FB_CALLBACK_URL: http://login.localhost.in:3000/auth/facebook/callback
   - secure: hEcE3BSDRKaSYH0rNu7ZsF7nZHs+DXlfIAJpJGCOL6cFU3rfKpUgmXTZaGz8tuY/bZXTwN0miDfGtn+7T6gnV/3D4wxVXhBEXDUnWmCOhiDMHkPrmv2zJXiy5WbuPkjc8GCrvRnUrpfo1ETSiqhj5NSlfvWM6r8kQsvXdoYg1kE=
   - secure: Ye1t4smtC70vmsi57DBL2G6SyAHH9HpyWm3zCQWkRZpseWyidVTaP0qVw1SZ9gSGYdYKLPPcknGv43jq3pKGKXbWKoGkcFdBKHlLSitmbK2OH6JsdWkBV+JiUMjTROywfT9rJHzEWfZyms6C1CLZAfIIR99pduSA+wB5YIWr91Q=
   - secure: btysrd61OMR+wnEmtlsfHutlRylJy5VTtfXSriV4p6GBFElryIkPGa5Be/VN2z+TYJW9Gig3lXK67KLXnMkst6rQLhYR9ELPI/on8ZLEX+HTJUdYsIigUVFEmzsJ4/rNBiCB4NarcVQuhtoBS+S2f/qYXV5mUOxAwpEApMlZ1yw=
+  - secure: X73x4mTCv+lm/+2qx4HObbhV58hvqs6vhDed/qbUTghPNHjMYtY7vgjHjgerMlXwzNl98wlVRjqO5+yB9Vv/yytfF8/NWUbAuKsFYXS9Wb5epiFT6N/KL2VSYmqTAnITwF26x157DllUF8Xa1kxgPEGe4Au6IyaaWtcCY+OFyyM=
+  - secure: EDTBb6RCJwehXXSILapWbezkd5ZnZjXdQaUZ9/wymd+Taqpc31Hr950yaWmuCqmycBova8dmVd2sgOvP6PskeRD+jT4HoIUGL0EODNAnYC6DYzPXM8bNRAZJrMQoZFz0txGDtbl0e3qvx5qKQX7Cj3d7FTffTqvqihawBMwvDpc=
 deploy:
   provider: openshift
   user: prasun.sultania@gmail.com
