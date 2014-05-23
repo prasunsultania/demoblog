@@ -7,6 +7,8 @@ Object.keys(env).forEach(function(key){
 var express = require('express');
 var mongoose = require('mongoose'); // Driver for connecting to MongoDB
 var connect = require('connect');
+var passport = require('passport');
+var flash = require('connect-flash');
 
 var BlogApp = function() {
 	var app = express();
@@ -53,9 +55,20 @@ var BlogApp = function() {
     self.initializeServer = function() {
     	//without being able to connect to mongoDB app wont start
     	mongoose.connect(process.env.MONGO_URI, function(err, db) {
-    	    "use strict";    	        	    
-    	    if(err) throw err;     	       	        	        	        	        	      	    
-    	    require('./routes/login')(loginApp, __dirname);
+    		if(err) throw err;
+    		
+    		require('./strategies/passport')(passport);
+    		// required for passport
+    		app.use(connect.cookieParser())
+    		.use(connect.bodyParser());
+    		
+    		app.use(connect.session({secret: process.env.SESSION_SECRET}))
+    		.use(passport.initialize())
+    		.use(passport.session())
+    		.use(flash()); // use connect-flash for flash messages stored in session
+    		
+    	    require('./routes/login')(loginApp, __dirname, passport);
+    	    require('./routes/secured')(loginApp, __dirname);
     	    
     	    app
     	    .use(connect.vhost('login.localhost.in', loginApp))
@@ -71,7 +84,6 @@ var BlogApp = function() {
     	    console.log('%s: Node server started on %s:%s ...', Date(Date.now()), process.env.NODEJS_IP, process.env.NODEJS_PORT);    	    
     	});
     };
-
 
     self.initialize = function(callback) {
     	self.logUncaughtExceptions();

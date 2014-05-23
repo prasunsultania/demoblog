@@ -3,7 +3,7 @@ var servePublicFiles = require('../utils/servepublicfiles');
 /**
 * Handle all routes that are public
 **/
-module.exports = function(loginApp, rootDir){	
+module.exports = function(loginApp, rootDir, passport){	
 	
 	loginApp.set('views', rootDir + '/views');
     loginApp.set('view engine', 'ejs');    	    
@@ -22,11 +22,23 @@ module.exports = function(loginApp, rootDir){
     	});
     });
     
+    loginApp.post('/login', passport.authenticate('local-login', {
+		successRedirect : '/profile',
+		failureRedirect : '/login',
+		failureFlash : true
+	}));
+    
     loginApp.get('/signup', function(req, res){
     	return res.render('signup.ejs',{
     		message: null    		
     	});
     });
+    
+    loginApp.post('/signup', passport.authenticate('local-signup', {
+		successRedirect : '/profile',
+		failureRedirect : '/signup',
+		failureFlash : true
+	}));                
     
     loginApp.get('/bower_components/*', servePublicFiles.getResource);
     loginApp.get('/img/*', servePublicFiles.getResource);
