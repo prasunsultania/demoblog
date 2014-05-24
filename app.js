@@ -1,14 +1,11 @@
-var env = require('./.env.js');
-
-Object.keys(env).forEach(function(key){
-	process.env[key] = env[key];
-});
-
 var express = require('express');
 var mongoose = require('mongoose'); // Driver for connecting to MongoDB
 var connect = require('connect');
 var passport = require('passport');
 var flash = require('connect-flash');
+
+//load env
+require('./utils/loadenv')();
 
 var BlogApp = function() {
 	var app = express();

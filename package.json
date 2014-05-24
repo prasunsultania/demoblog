@@ -2,6 +2,8 @@
   "name": "demoproject",
   "description": "trying out a few technologies",
   "version": "0.0.1",
+  "repository": "https://github.com/prasunsultania/demoblog",
+  "private": true,
   "engines": {
     "node": "0.10.x"
   },
@@ -29,6 +31,10 @@
   "devDependencies": {
     "istanbul": "0.2.10",
     "mocha": "1.18.2",
-    "sinon": "1.9.1"
+    "sinon": "1.9.1",
+    "coveralls": "2.10.0",
+    "mocha-lcov-reporter": "0.0.1",
+    "chai": "1.9.1",
+    "request": "2.36.0"
   }
 }

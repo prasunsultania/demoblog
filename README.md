@@ -2,6 +2,7 @@ demoproject
 ===========
 
 [![Build Status](https://travis-ci.org/prasunsultania/demoblog.svg?branch=master)](https://travis-ci.org/prasunsultania/demoblog)
+[![Coverage Status](https://img.shields.io/coveralls/prasunsultania/demoblog.svg)](https://coveralls.io/r/prasunsultania/demoblog)
 
 If you are willing to setup a server using MEAN stack, You might find this repository useful.
 

@@ -8,6 +8,9 @@ script:
 notifications:
   email:
   - prasun.sultania@gmail.com
+addons:
+  hosts:
+  - login.localhost.in
 env:
   global:
   - NODEJS_IP: 127.0.0.1
