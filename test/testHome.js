@@ -6,7 +6,7 @@ describe('test Home', function(){
   
   before(function(done){
 	//give server time to start  
-    setTimeout(2000, done);
+    setTimeout(done, 3000);
   });
 
   describe('/login', function(){
