@@ -9,11 +9,55 @@ describe('test Home', function(){
     setTimeout(done, 3000);
   });
 
-  describe('/login', function(){
+  describe('/', function(){
     it('should give a response', function(done){
       var reqClient = new request();
       reqClient.request({
     	  url:'http://login.localhost.in:' + process.env.NODEJS_PORT
+      }).then(function(res){
+    	  expect(res).to.not.equal('null');
+    	  expect(res).to.not.equal('undefined');
+    	  console.log('response received from server');
+    	  var body = res.getBody().toString();    	      	  
+    	  expect(body).to.not.equal('null');
+    	  expect(body).to.not.equal('undefined');
+    	  console.log('test is all clear');
+    	  done();
+      }, function(){
+    	  console.log('test failed');
+    	  expect(true).to.equal(false);
+    	  done();
+      })
+    });
+  });
+  
+  describe('/login', function(){
+    it('should give a response', function(done){
+      var reqClient = new request();
+      reqClient.request({
+    	  url:'http://login.localhost.in:' + process.env.NODEJS_PORT + "/login"
+      }).then(function(res){
+    	  expect(res).to.not.equal('null');
+    	  expect(res).to.not.equal('undefined');
+    	  console.log('response received from server');
+    	  var body = res.getBody().toString();    	      	  
+    	  expect(body).to.not.equal('null');
+    	  expect(body).to.not.equal('undefined');
+    	  console.log('test is all clear');
+    	  done();
+      }, function(){
+    	  console.log('test failed');
+    	  expect(true).to.equal(false);
+    	  done();
+      })
+    });
+  });
+  
+  describe('/signup', function(){
+    it('should give a response', function(done){
+      var reqClient = new request();
+      reqClient.request({
+    	  url:'http://login.localhost.in:' + process.env.NODEJS_PORT + "/signup"
       }).then(function(res){
     	  expect(res).to.not.equal('null');
     	  expect(res).to.not.equal('undefined');
