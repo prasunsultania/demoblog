@@ -1,10 +1,8 @@
 language: node_js
 node_js:
 - '0.10'
-before_script:
-- node app.js &
 script:
-- echo $NODEJS_IP
+- make test
 notifications:
   email:
   - prasun.sultania@gmail.com
