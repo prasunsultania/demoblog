@@ -4,9 +4,10 @@ var expect = require('chai').expect;
 console.log('loaded test');
 describe('test Home', function(){
   
-	/*before(function(done){	
-    done();
-  });*/
+  before(function(done){
+	//give server time to start  
+    setTimeout(2000, done);
+  });
 
   describe('/login', function(){
     it('should give a response', function(done){
@@ -23,6 +24,7 @@ describe('test Home', function(){
     	  console.log('test is all clear');
     	  done();
       }, function(){
+    	  console.log('test failed');
     	  expect(true).to.equal(false);
     	  done();
       })
