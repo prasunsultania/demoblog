@@ -20,8 +20,13 @@ module.exports = function(reqObject) {
 		if (config.body && config.method === 'POST') {
 			reqConfig.form = config.body;
 		}
+		
+		console.log('requesting:' + reqConfig.url)
 
 		request(reqConfig, function(error, response, body) {
+			
+			console.log('got a response man');
+			
 			if (!response) {
 				// TODO Handle it
 				return deferred.reject();
@@ -38,6 +43,7 @@ module.exports = function(reqObject) {
 			response.url = response.request.uri.href;
 
 			if (response.statusCode === 200) {
+				console.log('got a resolved response man');
 				return deferred.resolve(response, config.url);
 			}
 
