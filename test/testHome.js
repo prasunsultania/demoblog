@@ -14,6 +14,9 @@ describe('test Home', function(){
       reqClient.request({
     	  url:'http://login.localhost.in:' + process.env.NODEJS_PORT
       }).then(function(res){
+    	  expect(res).to.not.equal('null');
+    	  expect(res).to.not.equal('undefined');
+    	  console.log('response received from server');
     	  var body = res.getBody().toString();    	      	  
     	  expect(body).to.not.equal('null');
     	  expect(body).to.not.equal('undefined');

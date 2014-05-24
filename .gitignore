@@ -30,3 +30,4 @@ public/node_modules
 .project
 public/bower_components
 test/coverage/coverage.lcov
+test/coverage.lcov
