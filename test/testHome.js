@@ -16,7 +16,8 @@ describe('test Home', function(){
       }).then(function(res){
     	  var body = res.getBody().toString();    	      	  
     	  expect(body).to.not.equal('null');
-    	  expect(body).to.not.equal('undefined');    	  
+    	  expect(body).to.not.equal('undefined');
+    	  console.log('test is all clear');
     	  done();
       }, function(){
     	  expect(true).to.equal(false);

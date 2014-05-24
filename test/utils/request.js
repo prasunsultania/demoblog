@@ -23,9 +23,7 @@ module.exports = function(reqObject) {
 		
 		console.log('requesting:' + reqConfig.url)
 
-		request(reqConfig, function(error, response, body) {
-			
-			console.log('got a response man');
+		request(reqConfig, function(error, response, body) {						
 			
 			if (!response) {
 				// TODO Handle it
@@ -42,8 +40,7 @@ module.exports = function(reqObject) {
 
 			response.url = response.request.uri.href;
 
-			if (response.statusCode === 200) {
-				console.log('got a resolved response man');
+			if (response.statusCode === 200) {				
 				return deferred.resolve(response, config.url);
 			}
 
