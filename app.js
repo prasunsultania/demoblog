@@ -77,8 +77,12 @@ var BlogApp = function() {
     	    .use(connect.vhost('prasunsultania.in', loginApp))
     	    .use(connect.vhost('localhost.in', securedApp));    	    
     	    
-    	    app.listen(process.env.NODEJS_PORT, process.env.NODEJS_IP);
-    	    console.log('%s: Node server started on %s:%s ...', Date(Date.now()), process.env.NODEJS_IP, process.env.NODEJS_PORT);    	    
+    	    app.listen(process.env.NODEJS_PORT || process.env.OPENSHIFT_NODEJS_PORT, 
+    	    		process.env.NODEJS_IP || process.env.OPENSHIFT_NODEJS_IP);
+    	    console.log('%s: Node server started on %s:%s ...', 
+    	    		Date(Date.now()),
+    	    		process.env.NODEJS_IP || process.env.OPENSHIFT_NODEJS_IP,
+    	    		process.env.NODEJS_PORT || process.env.OPENSHIFT_NODEJS_PORT);
     	});
     };
 
