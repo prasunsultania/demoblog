@@ -3,11 +3,8 @@ node_js:
 - '0.10'
 script:
 - make test
-after script:
+after_failure:
   - cat ./test/coverage/coverage.lcov
-notifications:
-  email:
-  - prasun.sultania@gmail.com
 addons:
   hosts:
   - login.localhost.in
