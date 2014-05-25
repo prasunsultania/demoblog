@@ -5,6 +5,7 @@ demoproject
 [![Coverage Status](https://img.shields.io/coveralls/prasunsultania/demoblog.svg)](https://coveralls.io/r/prasunsultania/demoblog)
 [![Requirements Status](https://requires.io/github/prasunsultania/demoblog/requirements.png?branch=master)](https://requires.io/github/prasunsultania/demoblog/requirements/?branch=master)
 
+https://david-dm.org/prasunsultania/demoblog.png
 
 If you are willing to setup a server using MEAN stack, You might find this repository useful.
 
