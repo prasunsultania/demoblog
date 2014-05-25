@@ -26,7 +26,8 @@
     "passport-google-oauth": "0.1.5",
     "ejs": "1.0.0",
     "mime": "1.2.11",
-    "connect-flash": "0.1.1"
+    "connect-flash": "0.1.1",
+    "email-validator": "^1.0.0"
   },
   "devDependencies": {
     "istanbul": "0.2.10",

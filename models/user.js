@@ -1,17 +1,18 @@
 // load the things we need
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
+var validEmail = require('./helpers/validate/email');
 
 // define the schema for our user model
 var userSchema = mongoose.Schema({
 	local : {
-		email : String,
+		email : {type: String, validate: validEmail, lowercase: true},
 		password : String,
 	},
 	facebook : {
 		id : String,
 		token : String,
-		email : String,
+		email : {type: String, validate: validEmail, lowercase: true},
 		name : String
 	},
 	twitter : {
@@ -23,7 +24,7 @@ var userSchema = mongoose.Schema({
 	google : {
 		id : String,
 		token : String,
-		email : String,
+		email : {type: String, validate: validEmail, lowercase: true},
 		name : String
 	}
 });

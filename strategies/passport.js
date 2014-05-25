@@ -75,6 +75,11 @@ module.exports = function(passport) {
         passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     },
     function(req, email, password, done) {
+    	if (!email) {
+    		console.log('flashing it up');
+            return done(null, false, req.flash('signupMessage', 'Email is required!'));
+        }
+    	console.log('local-signup-email:'+ email);
         if (email)
             email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
 

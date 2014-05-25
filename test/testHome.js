@@ -16,12 +16,10 @@ describe('test Home', function(){
     	  url:'http://login.localhost.in:' + process.env.NODEJS_PORT
       }).then(function(res){
     	  expect(res).to.not.equal('null');
-    	  expect(res).to.not.equal('undefined');
-    	  console.log('response received from server');
+    	  expect(res).to.not.equal('undefined');    	  
     	  var body = res.getBody().toString();    	      	  
     	  expect(body).to.not.equal('null');
-    	  expect(body).to.not.equal('undefined');
-    	  console.log('test is all clear');
+    	  expect(body).to.not.equal('undefined');    	  
     	  done();
       }, function(){
     	  console.log('test failed');
@@ -38,15 +36,12 @@ describe('test Home', function(){
     	  url:'http://login.localhost.in:' + process.env.NODEJS_PORT + "/login"
       }).then(function(res){
     	  expect(res).to.not.equal('null');
-    	  expect(res).to.not.equal('undefined');
-    	  console.log('response received from server');
+    	  expect(res).to.not.equal('undefined');    	  
     	  var body = res.getBody().toString();    	      	  
     	  expect(body).to.not.equal('null');
-    	  expect(body).to.not.equal('undefined');
-    	  console.log('test is all clear');
+    	  expect(body).to.not.equal('undefined');    	  
     	  done();
-      }, function(){
-    	  console.log('test failed');
+      }, function(){    	  
     	  expect(true).to.equal(false);
     	  done();
       })
@@ -60,15 +55,12 @@ describe('test Home', function(){
     	  url:'http://login.localhost.in:' + process.env.NODEJS_PORT + "/signup"
       }).then(function(res){
     	  expect(res).to.not.equal('null');
-    	  expect(res).to.not.equal('undefined');
-    	  console.log('response received from server');
+    	  expect(res).to.not.equal('undefined');    	  
     	  var body = res.getBody().toString();    	      	  
     	  expect(body).to.not.equal('null');
-    	  expect(body).to.not.equal('undefined');
-    	  console.log('test is all clear');
+    	  expect(body).to.not.equal('undefined');    	  
     	  done();
-      }, function(){
-    	  console.log('test failed');
+      }, function(){    	  
     	  expect(true).to.equal(false);
     	  done();
       })

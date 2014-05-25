@@ -46,6 +46,7 @@ var BlogApp = function() {
     self.logUncaughtExceptions = function(){
     	process.on('uncaughtException' , function(ex){
     		console.dir(ex);
+    		//console.dir(ex.stack);
     	});
     }
 

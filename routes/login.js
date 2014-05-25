@@ -52,7 +52,7 @@ module.exports = function(loginApp, rootDir, passport){
 		failureFlash : true
 	}));
     
-    loginApp.get('/signup', function(req, res){
+    loginApp.get('/signup', function(req, res){    	
     	return res.render('signup.ejs',{
     		message: null    		
     	});

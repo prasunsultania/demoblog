@@ -31,3 +31,6 @@ public/node_modules
 public/bower_components
 test/coverage/coverage.lcov
 test/coverage.lcov
+
+# Gemnasium gem configuration file
+config/gemnasium.yml
