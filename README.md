@@ -5,10 +5,10 @@ demoproject
 [![Coverage Status](https://img.shields.io/coveralls/prasunsultania/demoblog.svg)](https://coveralls.io/r/prasunsultania/demoblog)
 [![Requirements Status](https://requires.io/github/prasunsultania/demoblog/requirements.png?branch=master)](https://requires.io/github/prasunsultania/demoblog/requirements/?branch=master)
 
-<a href="https://david-dm.org/prasunsultania/demoblog#info=devDependencies&view=table"><img src="https://david-dm.org/prasunsultania/demoblog.png"></a>
-<br/>
+<a href="https://david-dm.org/prasunsultania/demoblog#info=dependencies&view=table"><img src="https://david-dm.org/prasunsultania/demoblog.png"></a>
+<a href="https://david-dm.org/prasunsultania/demoblog#info=devDependencies&view=table"><img src="https://david-dm.org/prasunsultania/demoblog/dev-status.svg"/></a>
 
-<h2>Overview</h2>
+<h3>Overview</h3>
 If you are willing to setup a server using MEAN stack and you want to deploy code to a PaaS, You might find this repository useful.
 Will blog about the framework and its details on http://prasun.io/ when I have it in functional state.    
 
@@ -16,24 +16,35 @@ Helpful Repositories which inspired a good part of the code:<br/>
 1) http://scotch.io/series/easy-node-authentication
 
 <h3>Getting Started:</h3>
-1) Fork and checkout<br/>
-2) create a file .env.js, referring to .env.refer If you need help please post a question on twitter @prasunsultania, or open a bug, if you think its a bug<br/>
+<ol>
+<li> Fork and checkout</li>
+<li> Create a file .env.js, referring to .env.refer. If you need help please post a question on twitter @prasunsultania, or open a bug, if you think its a bug</li>
 	<span style="padding-left:5em;">a) You need to have a mongod running on your local machine or subscribe for a Mongolab/MongoHQ account and paste its url in your .env.js</span><br/>
 	<span style="padding-left:5em;">b) Create a basic app in FB, Google and Twitter if you want to allow logging in from these sites and enter API key, secret and callback urls in .env.js</span><br/>
-3) Following commands:<br/>
-	<code>npm install<br/>
-	cd public<br/>
-	npm install<br/>
-	bower install<br/>
-	cd..<br/>
-	node app</code><br/><br/>
-4) Thats it. Running tests (Backend Only):<br/>
-	a) Mac/Unix/Linux:<br/>
-		<code>make test</code><br/>
-	b) Windows:<br/>
-	    <code>cd node_modules\.bin<br/>
-		mocha -R spec -t 15000 PathToRepo\test\test*.js</code><br/>
-		
+<li>Run Following commands while you are in root directory of repository:
+    <ul>
+    	<li><code>npm install</code></li>
+    	<li><code>cd public</code></li>
+    	<li><code>npm install</code></li>
+    	<li><code>bower install</code></li>
+    	<li><code>cd..</code></li>
+    	<li><code>node app</code></li>
+	</ul>
+</li>
+<li> Thats it. Running tests (Backend Only):<br/>
+	<ul>
+	<li>a) Mac/Unix/Linux:<br/>
+		<ul><li><code>make test</code><br/></ul></li></li>
+	<li>b) Windows:
+	    <ul>
+	    <li><code>cd node_modules\.bin</code></li>
+		<li><code>mocha -R spec -t 15000 PathToRepo\test\test*.js</code></li>
+	    </ul>
+	</li>
+	</ul>
+</li>
+</ol>	
+
 <h3>Design Goals:</h3>
 <ul>
 	<li>Develop using MEAN Stack and keep code platform agnostic to allow deploying on any PaaS.</li>
