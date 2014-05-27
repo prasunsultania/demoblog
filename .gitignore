@@ -29,6 +29,7 @@ public/node_modules
 .settings
 .project
 public/bower_components
+public/lib
 test/coverage/coverage.lcov
 test/coverage.lcov
 
