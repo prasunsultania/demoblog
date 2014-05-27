@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "postinstall": "bower install",
+    "postinstall": "bower install --config.interactive=false",
     "test": "karma start public/test/karma.conf.js",
     "protractor": "protractor public/test/protractor-conf.js",
     "update-webdriver": "webdriver-manager update"
