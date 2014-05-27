@@ -1,6 +1,6 @@
 var fs = require('fs');
 var mime = require('mime');
-var PUBLIC_FOLDERS_FILES = ['/bower_components', 
+var PUBLIC_FOLDERS_FILES = ['/lib', 
                             '/css', '/js', '/img', 
                             '/partials', '/index.html'];
 

@@ -64,7 +64,7 @@ module.exports = function(loginApp, rootDir, passport){
 		failureFlash : true
 	}));                
     
-    loginApp.get('/bower_components/*', servePublicFiles.getResource);
+    loginApp.get('/lib/*', servePublicFiles.getResource);
     loginApp.get('/img/*', servePublicFiles.getResource);
     loginApp.get('/js/*', servePublicFiles.getResource);
 };
