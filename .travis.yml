@@ -28,8 +28,7 @@ env:
   - secure: ZfrPOkgIsZVgUbINkL4c6DlTO1Iqj0N1Xs+CKFDTZh0XzFDuojilEsguSGJkS9vmMpiSMTcEemYeSA4P2sRajRg4uM0ReDvA7zgCVMIhLeEFP5++m7Oud/kYmBD4tXuqVpv4Ts5FofAlw/HBc1x84cJkUnvN0UM6dIvE4PO4r7I=
   - secure: bF8AJfvfne+Eal2Y+ow4azi5Zn6lCCKo8X9GqWp4awLhdQCyguk2vX0qpVtwn34dcQlZNHUGn3HorJTJm0WJXMac6FEbpVKwW6hRE1TxAo0WyUoIDcxlpQOHBd7t+Hu5xnLLkpIyqFsYgtxEIyDNpYrH5+sWa0G/iosBf3LT2fo=
 after_success:
-  - git fetch --unshallow
-  - git config --global push.default simple
+  - git fetch --unshallow  
 deploy:
   provider: openshift
   user: prasun.sultania@gmail.com
