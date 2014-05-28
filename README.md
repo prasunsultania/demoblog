@@ -21,13 +21,11 @@ Helpful Repositories which inspired a good part of the code:<br/>
 <li> Create a file .env.js, referring to .env.refer. If you need help please post a question on twitter @prasunsultania, or open a bug, if you think its a bug</li>
 	<span style="padding-left:5em;">a) You need to have a mongod running on your local machine or subscribe for a Mongolab/MongoHQ account and paste its url in your .env.js</span><br/>
 	<span style="padding-left:5em;">b) Create a basic app in FB, Google and Twitter if you want to allow logging in from these sites and enter API key, secret and callback urls in .env.js</span><br/>
+<li>Add an entry for login.localhost.in your hosts file, pointing to 127.0.0.1<li>
 <li>Run Following commands while you are in root directory of repository:
     <ul>
     	<li><code>npm install</code></li>
-    	<li><code>cd public</code></li>
-    	<li><code>npm install</code></li>
     	<li><code>bower install</code></li>
-    	<li><code>cd..</code></li>
     	<li><code>node app</code></li>
 	</ul>
 </li>
