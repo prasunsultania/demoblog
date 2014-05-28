@@ -1,6 +1,9 @@
 language: node_js
 node_js:
 - '0.10'
+before_install:
+  - wget http://launchpadlibrarian.net/101227100/git-man_1.7.9.5-1_all.deb && sudo dpkg -i git-man_1.7.9.5-1_all.deb
+  - wget http://launchpadlibrarian.net/101225632/git_1.7.9.5-1_amd64.deb && sudo dpkg -i git_1.7.9.5-1_amd64.deb
 before_script:
   - npm run postinstall
 script:
@@ -27,8 +30,6 @@ env:
   - secure: TqzrU4SYnYvhHp+PpDMyDovfBMLO1B6e2r56TCcCMheP3aR05MkfTltBLJn/cbxT6gPmvoc9qTh9k8Zr5FRt39YOR8JVhra4KKTkT5eFTYOLU3VjHCBtl/4e7dpHn8UpGZGhNYK2jgRt+sVLGeW3gK6SuNkvqcr+LbXxlJA+z40=
   - secure: ZfrPOkgIsZVgUbINkL4c6DlTO1Iqj0N1Xs+CKFDTZh0XzFDuojilEsguSGJkS9vmMpiSMTcEemYeSA4P2sRajRg4uM0ReDvA7zgCVMIhLeEFP5++m7Oud/kYmBD4tXuqVpv4Ts5FofAlw/HBc1x84cJkUnvN0UM6dIvE4PO4r7I=
   - secure: bF8AJfvfne+Eal2Y+ow4azi5Zn6lCCKo8X9GqWp4awLhdQCyguk2vX0qpVtwn34dcQlZNHUGn3HorJTJm0WJXMac6FEbpVKwW6hRE1TxAo0WyUoIDcxlpQOHBd7t+Hu5xnLLkpIyqFsYgtxEIyDNpYrH5+sWa0G/iosBf3LT2fo=
-after_success:
-  - git fetch --unshallow  
 deploy:
   provider: openshift
   user: prasun.sultania@gmail.com
