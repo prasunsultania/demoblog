@@ -2,10 +2,10 @@ language: node_js
 node_js:
 - '0.10'
 before_script:
-  - bash env.sh
-  - echo $ME
+- bash env.sh
+- echo $ME
 script:
-  - make test-coveralls
+- make test-coveralls
 addons:
   hosts:
   - login.localhost.in
@@ -29,7 +29,7 @@ env:
   - secure: ZfrPOkgIsZVgUbINkL4c6DlTO1Iqj0N1Xs+CKFDTZh0XzFDuojilEsguSGJkS9vmMpiSMTcEemYeSA4P2sRajRg4uM0ReDvA7zgCVMIhLeEFP5++m7Oud/kYmBD4tXuqVpv4Ts5FofAlw/HBc1x84cJkUnvN0UM6dIvE4PO4r7I=
   - secure: bF8AJfvfne+Eal2Y+ow4azi5Zn6lCCKo8X9GqWp4awLhdQCyguk2vX0qpVtwn34dcQlZNHUGn3HorJTJm0WJXMac6FEbpVKwW6hRE1TxAo0WyUoIDcxlpQOHBd7t+Hu5xnLLkpIyqFsYgtxEIyDNpYrH5+sWa0G/iosBf3LT2fo=
 after_success:
-  - git fetch --unshallow  
+- git fetch --unshallow
 deploy:
 - provider: heroku
   api_key:
@@ -37,11 +37,18 @@ deploy:
   app: vast-chamber-5927
   on:
     repo: prasunsultania/demoblog
-- provider: openshift  
+- provider: openshift
   user: prasun.sultania@gmail.com
   password:
     secure: T0elyXCBgiB7o+0t0W5BNE7iiGGO3MGfVydlw/qOIbPGVYVGX564T1bIa8JL98ewWMTfEww3I0688mEcmoLcGm+yhca+prTDmSIFtli555cryrztU9X9qoMpB9prZIk+mIM5lBUbaC+v9uVOpa7Y6b2Z/63/HXB1KFVwfaWPPgQ=
   app: blog
   domain: webinvader
+  on:
+    repo: prasunsultania/demoblog
+- provider: cloudcontrol
+  email: prasun.sultania@gmail.com
+  password:
+    secure: gWS33jR889jTdOPo39xQ+TMXixjOXPkzofcG/VbNwn360+wQR9faDJJShxl6BtrsTdxzx8+IY430qXCQ/XBFK/AqjN+psMof7XpiOLgZyJtscW22E8y1/zZ8TwI1HoRVRcgY7s6n2GPVS/0wrmz5bHiBgCJhicjSmzVb0Ld824o=
+  deployment: awesomeblog/default
   on:
     repo: prasunsultania/demoblog
