@@ -5,7 +5,8 @@
   "repository": "https://github.com/prasunsultania/demoblog",
   "private": true,
   "engines": {
-    "node": "0.10.x"
+    "node": "0.10.x",
+    "npm": ">= 1.4"
   },
   "scripts": {
     "start": "node app.js",
