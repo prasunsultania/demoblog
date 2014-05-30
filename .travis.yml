@@ -6,8 +6,7 @@ script:
 addons:
 - hosts:
   - login.localhost.in
-- sauce_connect:
-  - true
+- sauce_connect:true
 env:
   global:
   - NODEJS_IP: 127.0.0.1
