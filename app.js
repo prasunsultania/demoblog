@@ -71,7 +71,7 @@ var BlogApp = function() {
     	    app
     	    .use(connect.vhost('login.localhost.in', loginApp))
     	    .use(connect.vhost('vast-chamber-5927.herokuapp.com', loginApp))
-    	    .use(connect.vhost('awesomeblog.cloudcontrolled.com', loginApp))    	    
+    	    .use(connect.vhost('awesomeblog.cloudcontrolapp.com', loginApp))    	    
     	    .use(connect.vhost('blog-webinvader.rhcloud.com', loginApp))
     	    .use(connect.vhost('prasun.io', loginApp))
     	    .use(connect.vhost('www.prasun.io', loginApp))
