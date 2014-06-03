@@ -50,5 +50,6 @@ deploy:
   password:
     secure: gWS33jR889jTdOPo39xQ+TMXixjOXPkzofcG/VbNwn360+wQR9faDJJShxl6BtrsTdxzx8+IY430qXCQ/XBFK/AqjN+psMof7XpiOLgZyJtscW22E8y1/zZ8TwI1HoRVRcgY7s6n2GPVS/0wrmz5bHiBgCJhicjSmzVb0Ld824o=
   deployment: awesomeblog/default
+  edge: true
   on:
     repo: prasunsultania/demoblog
