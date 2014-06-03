@@ -37,19 +37,19 @@ deploy:
   app: vast-chamber-5927
   on:
     repo: prasunsultania/demoblog
-- provider: openshift
-  user: prasun.sultania@gmail.com
-  password:
-    secure: T0elyXCBgiB7o+0t0W5BNE7iiGGO3MGfVydlw/qOIbPGVYVGX564T1bIa8JL98ewWMTfEww3I0688mEcmoLcGm+yhca+prTDmSIFtli555cryrztU9X9qoMpB9prZIk+mIM5lBUbaC+v9uVOpa7Y6b2Z/63/HXB1KFVwfaWPPgQ=
-  app: blog
-  domain: webinvader
-  on:
-    repo: prasunsultania/demoblog
 - provider: cloudcontrol
   email: prasun.sultania@gmail.com
   password:
     secure: gWS33jR889jTdOPo39xQ+TMXixjOXPkzofcG/VbNwn360+wQR9faDJJShxl6BtrsTdxzx8+IY430qXCQ/XBFK/AqjN+psMof7XpiOLgZyJtscW22E8y1/zZ8TwI1HoRVRcgY7s6n2GPVS/0wrmz5bHiBgCJhicjSmzVb0Ld824o=
   deployment: awesomeblog/default
   edge: true
+  on:
+    repo: prasunsultania/demoblog
+- provider: openshift
+  user: prasun.sultania@gmail.com
+  password:
+    secure: T0elyXCBgiB7o+0t0W5BNE7iiGGO3MGfVydlw/qOIbPGVYVGX564T1bIa8JL98ewWMTfEww3I0688mEcmoLcGm+yhca+prTDmSIFtli555cryrztU9X9qoMpB9prZIk+mIM5lBUbaC+v9uVOpa7Y6b2Z/63/HXB1KFVwfaWPPgQ=
+  app: blog
+  domain: webinvader
   on:
     repo: prasunsultania/demoblog
