@@ -1,4 +1,4 @@
-demoproject
+Awesome Blog
 ===========
 
 [![Build Status](https://travis-ci.org/prasunsultania/demoblog.svg?branch=master)](https://travis-ci.org/prasunsultania/demoblog)

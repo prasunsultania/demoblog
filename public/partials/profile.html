@@ -1,0 +1,108 @@
+<div class="container">
+	<div class="page-header text-center">
+		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
+		<!-- make sure sign out route is not handled by local -->
+		<a href="/logout" class="btn btn-default btn-sm" target="_self">Logout</a>
+	</div>
+
+	<div class="row">
+		<!-- LOCAL INFORMATION -->
+		<div class="col-sm-6">
+			<div class="well">
+				<h3><span class="fa fa-user"></span> Local</h3>
+				<span ng-switch on ="$root.localEmail || null">					
+					<span ng-switch-when="null">
+						<a href="/connect/local" class="btn btn-default">Connect Local</a>
+					</span>
+					<span ng-switch-default>
+						<p>
+							<strong>id</strong>: {{$root.localId}}<br>
+							<strong>email</strong>: {{$root.localEmail}}<br>
+							<strong>password</strong>: {{$root.localPassword}}
+						</p>
+						<a href="/unlink/local" class="btn btn-default">Unlink</a>
+					</span>
+				</span>														
+			</div>
+		</div>
+
+		<!-- FACEBOOK INFORMATION -->
+		<div class="col-sm-6">
+			<div class="well">
+				<h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
+
+				<!-- check if the user has this token (is the user authenticated with this social account) -->
+				<span ng-switch on ="$root.fbToken || null">
+					<span ng-switch-when="null">
+						<a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
+					</span>
+					<span ng-switch-default>
+						<p>
+							<strong>id</strong>: {{$root.fbId}}<br>
+							<strong>token</strong>: {{$root.fbToken}}<br>
+							<strong>email</strong>: {{$root.fbEmail}}<br>
+							<strong>name</strong>:  {{$root.fbName}}<br>
+						</p>	
+						<a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
+					</span>										
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+
+		<!-- TWITTER INFORMATION -->
+		<div class="col-sm-6">
+			<div class="well">
+				<h3 class="text-info"><span class="fa fa-twitter"></span> Twitter</h3>
+				<span ng-switch on ="$root.tToken || null">
+					<span ng-switch-when="null">
+						<a href="/connect/twitter" class="btn btn-info">Connect Twitter</a>
+					</span>
+					<span ng-switch-default>
+						<p>
+							<strong>id</strong>: {{$root.tId}}<br>
+							<strong>token</strong>: {{$root.tToken}}<br>
+							<strong>display name</strong>: {{$root.tName}}<br>
+							<strong>username</strong>: {{$root.tEmail}}
+						</p>
+						<a href="/unlink/twitter" class="btn btn-info">Unlink</a>
+					</span>
+				</span>
+			</div>
+		</div>
+
+		<!-- GOOGLE INFORMATION -->
+		<div class="col-sm-6">
+			<div class="well">
+				<h3 class="text-danger"><span class="fa fa-google-plus"></span> Google+</h3>
+				<span ng-switch on ="$root.gToken || null">
+					<span ng-switch-when="null">
+						<a href="/connect/google" class="btn btn-danger">Connect Google</a>
+					</span>
+					<span ng-switch-default>
+						<p>
+							<strong>id</strong>: {{$root.gId}}<br>
+							<strong>token</strong>: {{$root.gToken}}<br>
+							<strong>email</strong>: {{$root.gEmail}}<br>
+							<strong>name</strong>: {{$root.gName}}
+						</p>	
+						<a href="/unlink/google" class="btn btn-danger">Unlink</a>
+					</span>
+				</span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="text-center">
+		<p>Who am I?</p>		
+	</div>	
+	
+	<div class="text-center social-media">
+		<a href="https://github.com/prasunsultania"><img src="/img/github.png" alt="github" title="Github"></a>		
+		<a href="http://www.linkedin.com/pub/prasun-sultania/29/3b9/64b"><img src="/img/linkedin.png" title="Linkedin"></a>
+		<a href="https://twitter.com/prasunsultania"><img src="/img/twitter.png" title="Twitter"></a>
+		<a href="https://www.facebook.com/prasun.sultania"><img src="/img/facebook.png" title="Facebook"></a>
+		<a href="https://plus.google.com/u/1/105774959853557023808/posts"><img src="/img/googleplus.png" title="Google+"></a>
+	</div>
+</div>

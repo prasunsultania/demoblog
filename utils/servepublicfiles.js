@@ -1,8 +1,6 @@
 var fs = require('fs');
 var mime = require('mime');
-var PUBLIC_FOLDERS_FILES = ['/lib', 
-                            '/css', '/js', '/img', 
-                            '/partials', '/index.html'];
+var PUBLIC_FOLDERS_FILES = ['/libs', '/css', '/js', '/img', '/partials', '/index.html'];
 
 var PublicFilesServer = {};
 

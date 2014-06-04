@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" ng-app="awesomeBlog">
+<head>
+  <meta charset="utf-8">
+  <title>Awesome Blog</title>
+  <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/libs/angular/angular.js"></script>
+  <script src="/libs/angular-route/angular-route.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/controllers.js"></script>
+  <script>
+   window.GLOBALS = {
+    localEmail: '<%= localEmail || "" %>',
+   	localId: "<%= localId || '' %>",
+   	localPassword: "<%= localPassword || '' %>",
+   	
+   	fbEmail: "<%= fbEmail || ''  %>",
+   	fbId: "<%= fbId || ''  %>",
+   	fbToken: "<%= fbToken || ''  %>",
+   	fbName: "<%= fbName || ''  %>",
+   	
+	tEmail: "<%= tEmail || ''  %>",
+   	tId: "<%= tId || ''  %>",
+   	tToken: "<%= tToken || ''  %>",
+   	tName: "<%= tName || ''  %>",
+	
+	gEmail: "<%= gEmail || ''  %>",
+   	gId: "<%= gId || ''  %>",
+   	gToken: "<%= gToken || ''  %>",
+   	gName: "<%= gName || ''  %>"	   	
+   }
+  </script>  
+</head>
+<body>
+  <div ng-view></div>
+</body>
+</html>

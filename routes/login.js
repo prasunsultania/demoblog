@@ -1,5 +1,6 @@
 var connect = require('connect');
 var servePublicFiles = require('../utils/servepublicfiles');
+
 /**
 * Handle all routes that are public
 **/
@@ -16,7 +17,7 @@ module.exports = function(loginApp, rootDir, passport){
     	});
     });
     
-    loginApp.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+    loginApp.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));    
     loginApp.get('/auth/facebook/callback',
     	passport.authenticate('facebook', {
 			successRedirect : '/profile',
@@ -64,7 +65,6 @@ module.exports = function(loginApp, rootDir, passport){
 		failureFlash : true
 	}));                
     
-    loginApp.get('/lib/*', servePublicFiles.getResource);
-    loginApp.get('/img/*', servePublicFiles.getResource);
-    loginApp.get('/js/*', servePublicFiles.getResource);
+    //Handle public resources
+    loginApp.get(/\/(libs)|(partials)|(img)|(js)|(css)\/.+/, servePublicFiles.getResource);        
 };
