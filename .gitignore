@@ -30,7 +30,7 @@ public/node_modules
 .project
 public/bower_components
 public/test/testres
-#public/libs
+public/libs
 
 test/coverage/coverage.lcov
 test/coverage.lcov

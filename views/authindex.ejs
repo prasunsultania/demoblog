@@ -4,11 +4,20 @@
   <meta charset="utf-8">
   <title>Awesome Blog</title>
   <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="/css/app.css">
+  <% if(env === "development"){ %>
+  	<link rel="stylesheet" href="/css/app.css">
+  <% } else { %>
+  	<link rel="stylesheet" href="/css/app.min.css">
+  <% } %>
   <script src="/libs/angular/angular.js"></script>
   <script src="/libs/angular-route/angular-route.js"></script>
-  <script src="/js/app.js"></script>
-  <script src="/js/controllers.js"></script>
+  <% if(env === "development"){ %>
+  	<script src="/js/app.js"></script>
+  	<script src="/js/controllers.js"></script>
+  <% } else { %>
+  	<script src="/js/app.min.js"></script>
+  	<script src="/js/controllers.min.js"></script>
+  <% } %>    
   <script>
    window.GLOBALS = {
     localEmail: '<%= localEmail || "" %>',

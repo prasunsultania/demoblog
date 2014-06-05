@@ -61,8 +61,8 @@ Helpful Repositories which inspired a good part of the code:<br/>
  			<li>In each build commit on CI platform tests are ran using Saucelabs which kind of give you Cloud Access to the browser. Another great part of Saucelabs is that it is able to use localhost urls.</li>
  	<li>PaaS Deployments:
  	    <ul>
- 		    <li>Currently code is deployed to Openshift and Heroku by Travis CI once all the tests are passing</li>
- 		    <li>I have done my best to keep code PaaS Platform agnostic.</li>
+ 		    <li>Currently code is deployed to CloudControl and Heroku by Travis CI once all the tests are passing</li>
+ 		    <li>Code is almost PaaS Platform agnostic, it needs correct env variables to be set</li>
  		</ul>
  	</li>
 </ul>

@@ -6,6 +6,8 @@ module.exports = function(app){
 	app.get('/profile', isLoggedIn, function(req, res) {
 		var user = req.user;
 		res.render('authindex.ejs', {
+			env: process.env.NODE_ENV,
+			
 			localId: user._id,
 			localEmail: user.local.email,
 			localPassword: user.local.password,
