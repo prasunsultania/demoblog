@@ -20,8 +20,8 @@ Helpful Repositories which inspired a good part of the code:<br/>
 <li> Fork and checkout</li>
 <li> Create a file .env.js, referring to .env.refer. If you need help please post a question on twitter @prasunsultania, or open a bug, if you think its a bug</li>
 	<span style="padding-left:5em;">a) You need to have a mongod running on your local machine or subscribe for a Mongolab/MongoHQ account and paste its url in your .env.js</span><br/>
-	<span style="padding-left:5em;">b) Create a basic app in FB, Google and Twitter if you want to allow logging in from these sites and enter API key, secret and callback urls in .env.js</span><br/>
-<li>Add an entry for login.localhost.in your hosts file, pointing to 127.0.0.1<li>
+	<span style="padding-left:5em;">b) Create a basic app in FB, Google and Twitter and enter API key, secret and callback urls in .env.js</span><br/>
+<li>Add an entry for login.localhost.in your hosts file, pointing to 127.0.0.1</li>
 <li>Run Following commands while you are in root directory of repository:
     <ul>
     	<li><code>npm install</code></li>
@@ -29,17 +29,8 @@ Helpful Repositories which inspired a good part of the code:<br/>
     	<li><code>node app</code></li>
 	</ul>
 </li>
-<li> Thats it. Running tests (Backend Only):<br/>
-	<ul>
-	<li>a) Mac/Unix/Linux:<br/>
-		<ul><li><code>make test</code><br/></ul></li></li>
-	<li>b) Windows:
-	    <ul>
-	    <li><code>cd node_modules\.bin</code></li>
-		<li><code>mocha -R spec -t 15000 PathToRepo\test\test*.js</code></li>
-	    </ul>
-	</li>
-	</ul>
+<li> Thats it. Running tests (Backend Only):<br/>	
+		<code>grunt test</code>		
 </li>
 </ol>	
 
@@ -62,7 +53,7 @@ Helpful Repositories which inspired a good part of the code:<br/>
  	<li>PaaS Deployments:
  	    <ul>
  		    <li>Currently code is deployed to CloudControl and Heroku by Travis CI once all the tests are passing</li>
- 		    <li>Code is almost PaaS Platform agnostic, it needs correct env variables to be set</li>
+ 		    <li>Code is PaaS Platform agnostic, it needs correct env variables to be set. Please refer .env.js fore the same.</li>
  		</ul>
  	</li>
 </ul>

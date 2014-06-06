@@ -3,65 +3,65 @@ var requestor = require('request');
 
 module.exports = function(reqObject) {
 
-	var cookiesJar = requestor.jar();
-	var request = requestor.defaults({
-		jar : cookiesJar
-	});
+  var cookiesJar = requestor.jar();
+  var request = requestor.defaults({
+    jar : cookiesJar
+  });
 
-	this.request = function(config, promise) {
-		var deferred = promise || Q.defer(), that = this;
+  this.request = function(config, promise) {
+    var deferred = promise || Q.defer(), that = this;
 
-		var reqConfig = {
-			method : config.method || 'GET',
-			encoding : null,
-			url : config.url
-		};
+    var reqConfig = {
+      method : config.method || 'GET',
+      encoding : null,
+      url : config.url
+    };
 
-		if (config.body && config.method === 'POST') {
-			reqConfig.form = config.body;
-		}
-		
-		console.log('requesting:' + reqConfig.url)
+    if (config.body && config.method === 'POST') {
+      reqConfig.form = config.body;
+    }
 
-		request(reqConfig, function(error, response, body) {						
-			
-			if (!response) {
-				// TODO Handle it
-				return deferred.reject();
-			}
+    console.log('requesting:' + reqConfig.url);
 
-			response.getBody = function() {
-				return body;
-			};
+    request(reqConfig, function(error, response, body) {
 
-			response.getHeader = function(header) {
-				return response.headers[header];
-			};
+      if (!response) {
+        // TODO Handle it
+        return deferred.reject();
+      }
 
-			response.url = response.request.uri.href;
+      response.getBody = function() {
+        return body;
+      };
 
-			if (response.statusCode === 200) {				
-				return deferred.resolve(response, config.url);
-			}
+      response.getHeader = function(header) {
+        return response.headers[header];
+      };
 
-			if (response.statusCode !== 302) {
-				return deferred.reject(response);
-			}
+      response.url = response.request.uri.href;
 
-			var loc = response.getHeader('location');
+      if (response.statusCode === 200) {
+        return deferred.resolve(response, config.url);
+      }
 
-			if (loc.indexOf('http') !== 0) {
-				loc = config.url.match(/http:\/\/[^\/]*\.+[^\/]+/)[0] + loc;
-			}
+      if (response.statusCode !== 302) {
+        return deferred.reject(response);
+      }
 
-			that.request({
-				url : loc,
-				Referrer : config.Referrer,
-				method : 'GET',
-			}, deferred);
+      var loc = response.getHeader('location');
 
-		});
+      if (loc.indexOf('http') !== 0) {
+        loc = config.url.match(/http:\/\/[^\/]*\.+[^\/]+/)[0] + loc;
+      }
 
-		return deferred.promise;
-	};
+      that.request({
+        url : loc,
+        Referrer : config.Referrer,
+        method : 'GET',
+      }, deferred);
+
+    });
+
+    return deferred.promise;
+  };
 };
