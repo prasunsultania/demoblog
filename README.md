@@ -7,6 +7,7 @@ Awesome Blog
 
 <a href="https://david-dm.org/prasunsultania/demoblog#info=dependencies&view=table"><img src="https://david-dm.org/prasunsultania/demoblog.png"></a>
 <a href="https://david-dm.org/prasunsultania/demoblog#info=devDependencies&view=table"><img src="https://david-dm.org/prasunsultania/demoblog/dev-status.svg"/></a>
+<br/>
 <a href="https://saucelabs.com/u/prasun_sultania">
   <img src="https://saucelabs.com/browser-matrix/prasun_sultania.svg" alt="Selenium Tests Status" />
 </a>

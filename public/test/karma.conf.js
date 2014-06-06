@@ -21,12 +21,14 @@ module.exports = function(config) {
         version : '11'
       }
     };
+    browsers = Object.keys(customLaunchers);
     plugins = [ 'karma-sauce-launcher', 'karma-mocha', 'karma-chai',
-        'karma-junit-reporter', 'karma-coverage'];    
+        'karma-junit-reporter', 'karma-coverage' ];
   } else {
     browsers = [ 'Chrome', 'Firefox', 'IE' ];
-    plugins = [ 'karma-chrome-launcher', 'karma-firefox-launcher', 'karma-ie-launcher',
-        'karma-mocha', 'karma-chai', 'karma-junit-reporter', 'karma-coverage' ];
+    plugins = [ 'karma-chrome-launcher', 'karma-firefox-launcher',
+        'karma-ie-launcher', 'karma-mocha', 'karma-chai',
+        'karma-junit-reporter', 'karma-coverage' ];
   }
 
   config
