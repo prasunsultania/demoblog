@@ -8,10 +8,12 @@ module.exports = function(grunt) {
             reporter : require('jshint-stylish'),
             ignores : [ "public/js/app.min.js", "public/js/controllers.min.js",
                 'public/libs/**/*.js', 'node_modules/**/*.js',
-                'public/test/lib/**/*.js', 'test/coverage/**/*.js' ],
+                'test/coverage/**/*.js',
+                'public/test/**/*.js'],
             globals : {
               window : true,
-              angular : true
+              angular : true,
+              require : true
             },
             "-W097" : true
           },
@@ -30,11 +32,11 @@ module.exports = function(grunt) {
           build : {
             files : [ {
               src : 'public/js/app.js',
-              dest : 'public/js/app.min.js',
+              dest : 'public/jsmin/app.min.js',
               cwd : process.cwd()
             }, {
               src : 'public/js/controllers.js',
-              dest : 'public/js/controllers.min.js',
+              dest : 'public/jsmin/controllers.min.js',
               cwd : process.cwd()
             } ]
           }

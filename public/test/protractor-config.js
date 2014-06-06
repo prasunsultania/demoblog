@@ -1,10 +1,10 @@
-var portNum = process.env.TRAVIS_BUILD_NUMBER && 3000 ||
-	5000;
+var portNum = process.env.NODEJS_PORT || 8080;
+
 exports.config = {
   
-  sauceUser: undefined,
-  sauceKey: undefined,  
-  allScriptsTimeout: 11000,    
+  sauceUser: process.env.SAUCE_USERNAME,
+  sauceKey: process.env.SAUCE_ACCESS_KEY,
+  allScriptsTimeout: 11000,
   specs: ['e2e/*.js'],
 
   multiCapabilities: [  
@@ -13,7 +13,7 @@ exports.config = {
     {'browserName': 'chrome', 
     	'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
         'build': process.env.TRAVIS_BUILD_NUMBER,
-        'name': 'Protractor Profile page Tests'}/*,
+        'name': 'Protractor SignIn-Signout Test'}/*,
     {'browserName': 'safari'}*/
   ],
 

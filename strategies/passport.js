@@ -98,53 +98,24 @@ module.exports = function(passport) {
 
         // asynchronous
         process.nextTick(function() {
-          // if the user is not already logged in:
-          if (!req.user) {
-            User.findOne({
-              'local.email' : email
-            }, function(err, user) {
-              // if there are any errors, return the error
-              if (err)
-                return done(err);
-
-              // check to see if theres already a user with that email
-              if (user) {
-                return done(null, false, req.flash('signupMessage',
-                    'That email is already taken.'));
-              } else {
-
-                // create the user
-                var newUser = new User();
-
-                newUser.local.email = email;
-                newUser.local.password = newUser.generateHash(password);
-
-                newUser.save(function(err) {
-                  if (err)
-                    throw err;
-
-                  return done(null, newUser);
-                });
-              }
-
+          if(!req.user){
+            User.registerNewUser(email, password, function(err, userCreated){
+              if(err){                
+                return done(null, false, req.flash('Signup Error', 'Sign up failed - ' + err.message));
+              }              
+              return done(null, userCreated);
             });
-            // if the user is logged in but has no local account...
-          } else if (!req.user.local.email) {
-            // ...presumably they're trying to connect a local account
-            var user = req.user;
-            user.local.email = email;
-            user.local.password = user.generateHash(password);
-            user.save(function(err) {
-              if (err)
-                throw err;
-              return done(null, user);
+          } else if(!req.user.email) {
+            //...presumably they're trying to connect a local account
+            User.registerExistingUser(email, password, function(err, userCreated){
+              if(err){                
+                return done(null, false, req.flash('Signup Error', 'Sign up failed - ' + err.message));
+              }
+              return done(null, userCreated);
             });
           } else {
-            // user is logged in and already has a local account. Ignore signup.
-            // (You should log out before trying to create a new account, user!)
             return done(null, req.user);
           }
-
         });
 
       }));

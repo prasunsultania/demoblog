@@ -67,6 +67,6 @@ module.exports = function(loginApp, rootDir, passport) {
   }));
 
   // Handle public resources
-  loginApp.get(/\/(libs)|(partials)|(img)|(js)|(css)\/.+/,
+  loginApp.get(/\/(libs)|(partials)|(img)|(js)|(jsmin)|(css)\/.+/,
       servePublicFiles.getResource);
 };

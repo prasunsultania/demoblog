@@ -29,6 +29,45 @@ var userSchema = mongoose.Schema({
 	}
 });
 
+userSchema.methods.registerExistingUser = function(email, password, callback){  
+  var user = req.user;
+  user.local.email = email;
+  user.local.password = user.generateHash(password);
+  user.save(function(err) {
+    if (err)
+      return callback(err);
+    return done(null, user);
+  });
+};
+
+userSchema.statics.registerNewUser = function(email, password, callback){
+  var User = this;
+  User.findOne({
+    'local.email' : email
+  }, function(err, user) {
+    // if there are any errors, return the error
+    if (err){
+      return callback(err);
+    }
+    // check to see if theres already a user with that email
+    if (user) {
+      return callback(new Error("This user is already taken."));
+    } else {
+      // create the user
+      var newUser = new User();
+      newUser.local.email = email;
+      newUser.local.password = newUser.generateHash(password);
+      newUser.save(function(err, user) {
+        if(err){
+          console.dir(err);
+          return callback(err);
+        }        
+        return callback(null, newUser);
+      });
+    }
+  });    
+};
+
 // generating a hash
 userSchema.methods.generateHash = function(password) {
 	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);

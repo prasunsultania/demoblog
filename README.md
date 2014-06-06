@@ -30,7 +30,7 @@ Helpful Repositories which inspired a good part of the code:<br/>
 	</ul>
 </li>
 <li> Thats it. Running tests (Backend Only):<br/>	
-		<code>grunt test</code>		
+		<code>grunt testCoverage</code>&nbp;or use <code>node_modules\.bin\grunt testCoverage</code>
 </li>
 </ol>	
 
