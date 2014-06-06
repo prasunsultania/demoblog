@@ -1,6 +1,6 @@
 // Karma config details: http://karma-runner.github.io/0.12/config/configuration-file.html 
 module.exports = function(config) {
-  var customLaunchers = null, browsers = null, plugins;
+  var customLaunchers = null, browsers = null, plugins, startConnect = false;
 
   if (process.env.TRAVIS_BUILD_NUMBER) {
     customLaunchers = {
@@ -23,6 +23,7 @@ module.exports = function(config) {
     };
     plugins = [ 'karma-sauce-launcher', 'karma-mocha', 'karma-chai',
         'karma-junit-reporter', 'karma-coverage', 'karma-ie-launcher' ];
+    startConnect = true;
   } else {
     browsers = [ 'Chrome', 'Firefox', 'IE' ];
     plugins = [ 'karma-chrome-launcher', 'karma-firefox-launcher', 'karma-ie-launcher',
@@ -32,7 +33,7 @@ module.exports = function(config) {
   config
       .set({
         sauceLabs : {
-          startConnect : false,
+          startConnect : startConnect,
           testName : 'Awesome Blog Front End Unit tests',
           build : process.env.TRAVIS_BUILD_NUMBER,
           tunnelIdentifier : process.env.TRAVIS_JOB_NUMBER
