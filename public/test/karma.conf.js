@@ -1,78 +1,80 @@
 // Karma config details: http://karma-runner.github.io/0.12/config/configuration-file.html 
 module.exports = function(config) {
-  var customLaunchers = null,
-    browsers = null,
-    plugins;
+  var customLaunchers = null, browsers = null, plugins;
 
   if (process.env.TRAVIS_BUILD_NUMBER) {
     customLaunchers = {
-      sauce_chrome : {
+      sl_chrome : {
         base : 'SauceLabs',
         browserName : 'chrome',
-        platform : 'Windows 8.1',
-        version: '25'
+        platform : 'Windows 7'
       },
-      sauce_ff : {
+      sl_firefox : {
         base : 'SauceLabs',
         browserName : 'firefox',
-        version: '28',
-        platform : 'Linux'
+        version : '27'
+      },
+      sl_ie_11 : {
+        base : 'SauceLabs',
+        browserName : 'internet explorer',
+        platform : 'Windows 8.1',
+        version : '11'
       }
     };
     plugins = [ 'karma-sauce-launcher', 'karma-mocha', 'karma-chai',
-        'karma-junit-reporter', 'karma-coverage' ];
+        'karma-junit-reporter', 'karma-coverage', 'karma-ie-launcher' ];
   } else {
-    browsers = ['Chrome', 'Firefox', 'IE'];
-    plugins = [ 'karma-chrome-launcher', 'karma-firefox-launcher',
+    browsers = [ 'Chrome', 'Firefox', 'IE' ];
+    plugins = [ 'karma-chrome-launcher', 'karma-firefox-launcher', 'karma-ie-launcher',
         'karma-mocha', 'karma-chai', 'karma-junit-reporter', 'karma-coverage' ];
   }
 
-  config.set({
-    sauceLabs : {
-      startConnect : false,
-      testName : 'Awesome Blog Front End Unit tests',
-      build : process.env.TRAVIS_BUILD_NUMBER,
-      tunnelIdentifier : process.env.TRAVIS_JOB_NUMBER
-    },
+  config
+      .set({
+        sauceLabs : {
+          startConnect : false,
+          testName : 'Awesome Blog Front End Unit tests',
+          build : process.env.TRAVIS_BUILD_NUMBER,
+          tunnelIdentifier : process.env.TRAVIS_JOB_NUMBER
+        },
 
-    port : 3000,
+        port : 3000,
 
-    basePath : '../',
+        basePath : '../',
 
-    files : ['../public/libs/angular/angular.js',
-        '../public/libs/angular-route/angular-route.js',
-        '../public/libs/angular-mocks/angular-mocks.js',
-        '../node_modules/sinon/lib/sinon.js', 
-        'js/**/*.js',
-        'test/unit/**/*.js' ],
+        files : [ '../public/libs/angular/angular.js',
+            '../public/libs/angular-route/angular-route.js',
+            '../public/libs/angular-mocks/angular-mocks.js',
+            '../node_modules/sinon/lib/sinon.js', 'js/**/*.js',
+            'test/unit/**/*.js' ],
 
-    autoWatch : false,
+        autoWatch : false,
 
-    frameworks : [ 'mocha', 'chai' ],
+        frameworks : [ 'mocha', 'chai' ],
 
-    customLaunchers : customLaunchers,
+        customLaunchers : customLaunchers,
 
-    browsers : browsers,
+        browsers : browsers,
 
-    plugins : plugins,
+        plugins : plugins,
 
-    preprocessors : {
-      'js/**/*.js' : 'coverage'
-    },
+        preprocessors : {
+          'js/**/*.js' : 'coverage'
+        },
 
-    singleRun : true,
+        singleRun : true,
 
-    reporters : [ 'coverage', 'junit', 'progress', 'saucelabs' ],
+        reporters : [ 'coverage', 'junit', 'progress', 'saucelabs' ],
 
-    coverageReporter : {
-      type : 'lcov',
-      dir : 'test/coverage/'
-    },
+        coverageReporter : {
+          type : 'lcov',
+          dir : 'test/coverage/'
+        },
 
-    junitReporter : {
-      outputFile : 'test/testres/unit.xml',
-      suite : 'unit'
-    }
+        junitReporter : {
+          outputFile : 'test/testres/unit.xml',
+          suite : 'unit'
+        }
 
-  });
+      });
 };
