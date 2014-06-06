@@ -4,20 +4,48 @@ module.exports = function(grunt) {
       .initConfig({
         pkg : grunt.file.readJSON('package.json'),
         jshint : {
-          options : {
-            reporter : require('jshint-stylish'),
-            ignores : [ "public/js/app.min.js", "public/js/controllers.min.js",
-                'public/libs/**/*.js', 'node_modules/**/*.js',
-                'test/coverage/**/*.js',
-                'public/test/**/*.js'],
-            globals : {
-              window : true,
-              angular : true,
-              require : true
+          all : {
+            options : {
+              reporter : require('jshint-stylish'),
+              ignores : [ "public/jsmin/**/*.js",
+                  "public/js/controllers.min.js", 'public/libs/**/*.js',
+                  'node_modules/**/*.js', 'test/coverage/**/*.js',
+                  'public/test/**/*.js' ],
+              globals : {
+                window : true,
+                angular : true,
+                require : true,
+                console : true
+              },
+              "-W097" : true
             },
-            "-W097" : true
+            src : [ "**/*.js" ]
           },
-          all : [ "**/*.js" ]
+          frontendTests : {
+            options : {
+              reporter : require('jshint-stylish'),
+              ignores : [ 
+                  'public/test/coverage/**/*.js', 'public/test/lib/**/*.js'],
+              globals : {
+                window : true,
+                angular : true,
+                require : true,
+                describe : true,
+                beforeEach : true,
+                module : true,
+                inject : true,
+                it : true,
+                expect : true,
+                protractor : true,
+                before : true,
+                console : true,
+                browser : true,
+                By : true
+              },
+              "-W097" : true
+            },
+            src : [ "public/test/**/*.js" ]
+          }
         },
         csslint : {
           src : [ 'public/css/app.css' ],
@@ -116,12 +144,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-env');
   grunt.loadNpmTasks('grunt-mocha-istanbul');
 
-  //Unit test
+  // Unit test
   grunt.registerTask('default', [ 'jshint', 'csslint', 'uglify', 'cssmin' ]);
-  //To run unit tests without code coverage report 
-  grunt.registerTask('test', [ 'jshint', 'csslint', 'uglify', 'cssmin', 'env:test', 'mochaTest' ]);
-  //To run unit test+coveralls - run only on Travis  
-  grunt.registerTask('testCoveralls', [ 'jshint', 'csslint', 'uglify', 'cssmin', 'mocha_istanbul:coveralls' ]);
-  //To run unit with coverage report
-  grunt.registerTask('testCoverage', [ 'jshint', 'csslint', 'uglify', 'cssmin', 'env:test', 'mocha_istanbul:coverage' ]);
+  // To run unit tests without code coverage report
+  grunt.registerTask('test', [ 'jshint', 'csslint', 'uglify', 'cssmin',
+      'env:test', 'mochaTest' ]);
+  // To run unit test+coveralls - run only on Travis
+  grunt.registerTask('testCoveralls', [ 'jshint', 'csslint', 'uglify',
+      'cssmin', 'mocha_istanbul:coveralls' ]);
+  // To run unit with coverage report
+  grunt.registerTask('testCoverage', [ 'jshint', 'csslint', 'uglify', 'cssmin',
+      'env:test', 'mocha_istanbul:coverage' ]);
 };

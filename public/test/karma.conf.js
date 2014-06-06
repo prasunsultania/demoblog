@@ -15,14 +15,14 @@ module.exports = function(config) {
       sauce_ff : {
         base : 'SauceLabs',
         browserName : 'firefox',
-        version: '28'
+        version: '28',
         platform : 'Linux'
       }
     };
     plugins = [ 'karma-sauce-launcher', 'karma-mocha', 'karma-chai',
         'karma-junit-reporter', 'karma-coverage' ];
   } else {
-    browsers = ['Chrome'. 'Firefox', 'IE'];
+    browsers = ['Chrome', 'Firefox', 'IE'];
     plugins = [ 'karma-chrome-launcher', 'karma-firefox-launcher',
         'karma-mocha', 'karma-chai', 'karma-junit-reporter', 'karma-coverage' ];
   }
