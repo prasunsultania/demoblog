@@ -3,11 +3,11 @@ Awesome Blog
 
 [![Build Status](https://travis-ci.org/prasunsultania/demoblog.svg?branch=master)](https://travis-ci.org/prasunsultania/demoblog)
 [![Coverage Status](https://img.shields.io/coveralls/prasunsultania/demoblog.svg)](https://coveralls.io/r/prasunsultania/demoblog)
-[![Requirements Status](https://requires.io/github/prasunsultania/demoblog/requirements.png?branch=master)](https://requires.io/github/prasunsultania/demoblog/requirements/?branch=master)
 
 <a href="https://david-dm.org/prasunsultania/demoblog#info=dependencies&view=table"><img src="https://david-dm.org/prasunsultania/demoblog.png"></a>
 <a href="https://david-dm.org/prasunsultania/demoblog#info=devDependencies&view=table"><img src="https://david-dm.org/prasunsultania/demoblog/dev-status.svg"/></a>
 <br/>
+
 <a href="https://saucelabs.com/u/prasun_sultania">
   <img src="https://saucelabs.com/browser-matrix/prasun_sultania.svg" alt="Selenium Tests Status" />
 </a>

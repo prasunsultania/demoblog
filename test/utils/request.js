@@ -39,6 +39,7 @@ module.exports = function(reqObject) {
       };
 
       response.url = response.request.uri.href;
+      //console.log('response received for  - ' +response.url + " " + response.statusCode);
 
       if (response.statusCode === 200) {
         return deferred.resolve(response, config.url);

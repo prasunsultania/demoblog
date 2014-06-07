@@ -17,7 +17,8 @@ module.exports = function(grunt) {
                 require : true,
                 console : true
               },
-              "-W097" : true
+              "-W097" : true,
+              "-W014" : true //bad breakup before +
             },
             src : [ "**/*.js" ]
           },
@@ -42,7 +43,8 @@ module.exports = function(grunt) {
                 browser : true,
                 By : true
               },
-              "-W097" : true
+              "-W097" : true,
+              "-W014" : true //bad breakup before +
             },
             src : [ "public/test/**/*.js" ]
           }
@@ -104,8 +106,8 @@ module.exports = function(grunt) {
               reporter : 'spec',
               coverageFolder : 'test/coverage',
               check : {
-                lines : 30,
-                statements : 30
+                lines : 50,
+                statements : 50
               }
             }
           },
@@ -118,8 +120,8 @@ module.exports = function(grunt) {
               coverage : true,
               coverageFolder : 'test/coverage',
               check : {
-                lines : 30,
-                statements : 30
+                lines : 50,
+                statements : 50
               }
             }
           }
@@ -146,6 +148,9 @@ module.exports = function(grunt) {
 
   // Unit test
   grunt.registerTask('default', [ 'jshint', 'csslint', 'uglify', 'cssmin' ]);
+  
+  //just bacend unit test
+  grunt.registerTask('onlytest', ['env:test', 'mochaTest']);
   // To run unit tests without code coverage report
   grunt.registerTask('test', [ 'jshint', 'csslint', 'uglify', 'cssmin',
       'env:test', 'mochaTest' ]);

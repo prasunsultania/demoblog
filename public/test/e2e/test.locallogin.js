@@ -26,10 +26,7 @@ describe('integrator app', function() {
           if (err)
             throw err;
           if (!user)
-              throw new Error('!user');                                  
-          if(err){
-            throw err;
-          }
+              throw new Error('!user');          
           //give time for server to start
           browser.sleep(5000);
           console.log("loading: " + config.baseUrl + "/login");
