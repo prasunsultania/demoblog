@@ -36,9 +36,10 @@ module.exports = function(app) {
 };
 
 function isLoggedIn(req, res, next) {
+  console.log(req.cookies);
   // if user is authenticated in the session, carry on
   if (req.isAuthenticated())
-    return next();
-
+    return next();  
+  console.log('not logged in...');
   res.redirect('/');
 }

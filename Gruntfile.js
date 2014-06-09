@@ -17,7 +17,7 @@ module.exports = function(grunt) {
                 require : true,
                 console : true
               },
-              "-W097" : true,
+              "-W097" : true, //Use the function form of "use strict"
               "-W014" : true //bad breakup before +
             },
             src : [ "**/*.js" ]
@@ -43,7 +43,7 @@ module.exports = function(grunt) {
                 browser : true,
                 By : true
               },
-              "-W097" : true,
+              "-W097" : true,//Use the function form of "use strict"
               "-W014" : true //bad breakup before +
             },
             src : [ "public/test/**/*.js" ]
@@ -52,7 +52,7 @@ module.exports = function(grunt) {
         csslint : {
           src : [ 'public/css/app.css' ],
           options : {
-            'adjoining-classes' : false
+            'adjoining-classes' : false //IE6 and earlier doesnt handle it, so linter isnt happy.
           }
         },
         uglify : {

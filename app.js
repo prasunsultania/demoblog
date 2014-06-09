@@ -1,8 +1,13 @@
 var express = require('express');
 var mongoose = require('mongoose'); // Driver for connecting to MongoDB
-var connect = require('connect');
 var passport = require('passport');
 var flash = require('connect-flash');
+
+var session = require('express-session'),
+  RedisStore = require('connect-redis')(session),
+  cookieParser = require('cookie-parser'),
+  bodyParser = require('body-parser'),
+  vhost = require('vhost');
 
 // load env
 require('./utils/loadenv')();
@@ -61,29 +66,35 @@ var BlogApp = function() {
         throw err;
 
       require('./strategies/passport')(passport);
-      // required for passport
-      app.use(connect.cookieParser()).use(connect.bodyParser());
-
-      app.use(connect.session({
-        secret : process.env.SESSION_SECRET
+      
+      // required for passport                  
+      app.use(bodyParser());
+      app.use(cookieParser('optional secret string'));            
+      
+      app.use(session({
+        secret : process.env.SESSION_SECRET,
+        store : (new RedisStore({host: process.env.REDISCLOUD_HOST, 
+          port: process.env.REDISCLOUD_PORT, 
+          pass: process.env.REDISCLOUD_DB_PASS})),
+        cookie: {domain : ('.' + process.env.ROOT_DOMAIN)}
       }))
       .use(passport.initialize())
       .use(passport.session())
       .use(flash()); // use connect-flash for flash messages stored in session
-
+      
       require('./routes/login')(loginApp, __dirname, passport);
-      require('./routes/secured')(loginApp, __dirname);
+      require('./routes/secured')(loginApp, __dirname);            
 
-      app.use(connect.vhost('login.localhost.in', loginApp))
-      .use(connect.vhost('vast-chamber-5927.herokuapp.com', loginApp))
-      .use(connect.vhost('awesomeblog.cloudcontrolapp.com', loginApp))
-      .use(connect.vhost('blog-webinvader.rhcloud.com', loginApp))
-      .use(connect.vhost('prasun.io', loginApp))
-      .use(connect.vhost('www.prasun.io', loginApp))
-      .use(connect.vhost('www.prasunsultania.in', loginApp))
-      .use(connect.vhost('www.prasunsultania.info', loginApp))
-      .use(connect.vhost('prasunsultania.in', loginApp))
-      .use(connect.vhost('localhost.in', securedApp));
+      app.use(vhost('login.localhost.in', loginApp))
+      .use(vhost('vast-chamber-5927.herokuapp.com', loginApp))
+      .use(vhost('awesomeblog.cloudcontrolapp.com', loginApp))
+      .use(vhost('blog-webinvader.rhcloud.com', loginApp))
+      .use(vhost('prasun.io', loginApp))
+      .use(vhost('www.prasun.io', loginApp))
+      .use(vhost('www.prasunsultania.in', loginApp))
+      .use(vhost('www.prasunsultania.info', loginApp))
+      .use(vhost('prasunsultania.in', loginApp));
+      //.use(vhost('localhost.in', securedApp));
 
       app.listen(process.env.NODEJS_PORT || 
           process.env.OPENSHIFT_NODEJS_PORT || 

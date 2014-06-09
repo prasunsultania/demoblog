@@ -1,4 +1,6 @@
-var connect = require('connect');
+var cookieParser = require('cookie-parser'),
+  bodyParser = require('body-parser');
+
 var servePublicFiles = require('../utils/servepublicfiles');
 
 /**
@@ -9,8 +11,8 @@ module.exports = function(loginApp, rootDir, passport) {
   loginApp.set('views', rootDir + '/views');
   loginApp.set('view engine', 'ejs');
   
-  loginApp.use(connect.cookieParser())
-  .use(connect.bodyParser());
+  loginApp.use(cookieParser('cookiesecret'))
+  .use(bodyParser());
 
   loginApp.get('/', function(req, res) {
     return res.render('index.ejs', {
