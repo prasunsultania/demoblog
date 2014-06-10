@@ -14,7 +14,7 @@ module.exports = function(loginApp, rootDir, passport) {
   loginApp.use(cookieParser('cookiesecret'))
   .use(bodyParser());
 
-  loginApp.get('/', function(req, res) {
+  loginApp.get('/', isAlreadyLoggedIn ,function(req, res) {
     return res.render('index.ejs', {
       message : null
     });
@@ -44,7 +44,7 @@ module.exports = function(loginApp, rootDir, passport) {
     failureRedirect : '/'
   }));
 
-  loginApp.get('/login', function(req, res) {
+  loginApp.get('/login', isAlreadyLoggedIn, function(req, res) {
     return res.render('login.ejs', {
       message : null
     });
@@ -56,7 +56,7 @@ module.exports = function(loginApp, rootDir, passport) {
     failureFlash : true
   }));
 
-  loginApp.get('/signup', function(req, res) {
+  loginApp.get('/signup', isAlreadyLoggedIn, function(req, res) {
     return res.render('signup.ejs', {
       message : null
     });
@@ -72,3 +72,10 @@ module.exports = function(loginApp, rootDir, passport) {
   loginApp.get(/\/(libs)|(partials)|(img)|(js)|(jsmin)|(css)\/.+/,
       servePublicFiles.getResource);
 };
+
+function isAlreadyLoggedIn(req, res, next){
+  if (!req.isAuthenticated())
+    return next();  
+  console.log('already logged in...');
+  res.redirect('/profile');
+}

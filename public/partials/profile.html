@@ -12,7 +12,7 @@
 				<h3><span class="fa fa-user"></span> Local</h3>
 				<span ng-switch on ="$root.localEmail || null">					
 					<span ng-switch-when="null">
-						<a href="/connect/local" class="btn btn-default">Connect Local</a>
+						<a href="/connect/local" class="btn btn-default" target="_self">Connect Local</a>
 					</span>
 					<span ng-switch-default>
 						<p>
@@ -20,7 +20,7 @@
 							<strong>email</strong>: {{$root.localEmail}}<br>
 							<strong>password</strong>: {{$root.localPassword}}
 						</p>
-						<a href="/unlink/local" class="btn btn-default">Unlink</a>
+						<a href="/unlink/local" class="btn btn-default" target="_self">Unlink</a>
 					</span>
 				</span>														
 			</div>
@@ -34,7 +34,7 @@
 				<!-- check if the user has this token (is the user authenticated with this social account) -->
 				<span ng-switch on ="$root.fbToken || null">
 					<span ng-switch-when="null">
-						<a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
+						<a href="/connect/facebook" class="btn btn-primary" target="_self">Connect Facebook</a>
 					</span>
 					<span ng-switch-default>
 						<p>
@@ -43,7 +43,7 @@
 							<strong>email</strong>: {{$root.fbEmail}}<br>
 							<strong>name</strong>:  {{$root.fbName}}<br>
 						</p>	
-						<a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
+						<a href="/unlink/facebook" class="btn btn-primary" target="_self">Unlink</a>
 					</span>										
 				</span>
 			</div>
@@ -57,7 +57,7 @@
 				<h3 class="text-info"><span class="fa fa-twitter"></span> Twitter</h3>
 				<span ng-switch on ="$root.tToken || null">
 					<span ng-switch-when="null">
-						<a href="/connect/twitter" class="btn btn-info">Connect Twitter</a>
+						<a href="/connect/twitter" class="btn btn-info" target="_self">Connect Twitter</a>
 					</span>
 					<span ng-switch-default>
 						<p>
@@ -66,7 +66,7 @@
 							<strong>display name</strong>: {{$root.tName}}<br>
 							<strong>username</strong>: {{$root.tEmail}}
 						</p>
-						<a href="/unlink/twitter" class="btn btn-info">Unlink</a>
+						<a href="/unlink/twitter" class="btn btn-info" target="_self">Unlink</a>
 					</span>
 				</span>
 			</div>
@@ -78,7 +78,7 @@
 				<h3 class="text-danger"><span class="fa fa-google-plus"></span> Google+</h3>
 				<span ng-switch on ="$root.gToken || null">
 					<span ng-switch-when="null">
-						<a href="/connect/google" class="btn btn-danger">Connect Google</a>
+						<a href="/connect/google" class="btn btn-danger" target="_self">Connect Google</a>
 					</span>
 					<span ng-switch-default>
 						<p>
@@ -87,7 +87,7 @@
 							<strong>email</strong>: {{$root.gEmail}}<br>
 							<strong>name</strong>: {{$root.gName}}
 						</p>	
-						<a href="/unlink/google" class="btn btn-danger">Unlink</a>
+						<a href="/unlink/google" class="btn btn-danger" target="_self">Unlink</a>
 					</span>
 				</span>
 			</div>

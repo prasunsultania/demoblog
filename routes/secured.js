@@ -33,6 +33,18 @@ module.exports = function(app) {
     req.logout();
     res.redirect('/');
   });
+  
+  app.get('/connect/twitter', function(req, res){
+    res.redirect('/auth/twitter');
+  });
+  
+  app.get('/connect/facebook', function(req, res){
+    res.redirect('/auth/facebook');
+  });
+  
+  app.get('/connect/google', function(req, res){
+    res.redirect('/auth/google');
+  });
 };
 
 function isLoggedIn(req, res, next) {
