@@ -1,5 +1,9 @@
+var ngrok = require('ngrok');
+
 module.exports = function(grunt) {
   // Project configuration.
+  require('load-grunt-tasks')(grunt);
+  
   grunt
       .initConfig({
         pkg : grunt.file.readJSON('package.json'),
@@ -94,7 +98,7 @@ module.exports = function(grunt) {
         },
         env : {
           test : {
-            NODE_ENV : 'test'
+            NODE_ENV : 'test'            
           }
         },
         mocha_istanbul : {
@@ -125,6 +129,28 @@ module.exports = function(grunt) {
               }
             }
           }
+        },
+        pagespeed: {
+          options: {
+            nokey: true,
+            url: '<%= pagespeed.options.url %>'
+          },
+          local: {
+            options: {
+              locale: "en_GB",
+              strategy: "desktop",
+              url: '<%= pagespeed.local.options.url %>',
+              threshold: 80
+            }
+          },
+          mobile: {
+            options: {
+              locale: "en_GB",
+              strategy: "mobile",
+              url: '<%= pagespeed.mobile.options.url %>',
+              threshold: 80
+            }
+          }
         }
       });
 
@@ -153,11 +179,43 @@ module.exports = function(grunt) {
   grunt.registerTask('onlytest', ['env:test', 'mochaTest']);
   // To run unit tests without code coverage report
   grunt.registerTask('test', [ 'jshint', 'csslint', 'uglify', 'cssmin',
-      'env:test', 'mochaTest' ]);
+      'env:test', 'mochaTest', 'psi-ngrok']);
   // To run unit test+coveralls - run only on Travis
   grunt.registerTask('testCoveralls', [ 'jshint', 'csslint', 'uglify',
-      'cssmin', 'mocha_istanbul:coveralls' ]);
+      'cssmin', 'mocha_istanbul:coveralls', 'psi-ngrok' ]);
   // To run unit with coverage report
   grunt.registerTask('testCoverage', [ 'jshint', 'csslint', 'uglify', 'cssmin',
       'env:test', 'mocha_istanbul:coverage' ]);
+  
+  grunt.registerTask('psi-ngrok', 'Run pagespeed with ngrok', function() {
+    var done = this.async();
+    var port = process.env.NODEJS_PORT || 8080;
+
+    ngrok.connect({
+      authtoken: process.env.NGROK_AUTH_TOKEN,
+      subdomain: 'login',
+      httpauth: process.env.NGROK_HTTP_AUTH,
+      port: port
+    }, function(err, url) {
+      if (err !== null) {
+        grunt.fail.fatal(err);
+        return done();
+      }
+      
+      process.env.NGROK_URI = url;
+      //start app
+      //require('./app');
+      console.log('ngrok url: ' + url);
+      setTimeout(function(){
+        console.log('ngrok url repeat: ' + url);
+        grunt.config.set('pagespeed.options.url', url);
+        grunt.config.set('pagespeed.local.options.url', url);
+        grunt.config.set('pagespeed.mobile.options.url', url);
+        grunt.task.run('pagespeed');
+        done();
+      }, 3000);
+      
+    });
+  });
+  
 };

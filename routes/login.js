@@ -16,7 +16,8 @@ module.exports = function(loginApp, rootDir, passport) {
 
   loginApp.get('/', isAlreadyLoggedIn ,function(req, res) {
     return res.render('index.ejs', {
-      message : null
+      message : null,
+      env : process.env.NODE_ENV,
     });
   });
 

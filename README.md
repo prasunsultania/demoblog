@@ -33,6 +33,8 @@ Helpful Repositories which inspired a good part of the code:<br/>
     	<li><code>node app</code></li>
 	</ul>
 </li>
+<li>Register with NGROK to test custom domains based pageSpeedInsight custom domains. After registration make sure to set 
+ <code>NGROK_AUTH_TOKEN</code>&nbsp;and&nbsp;<code>NGROK_HTTP_AUTH</code>&npsp;and correct your domain name config in gruntfile.js code that connects to ngrok. If you dont want to register with ngrok, remove all configs in gruntfile.js for ngrok other than port.</li>
 <li> Thats it. Running tests (Backend Only):<br/>	
 		<code>grunt testCoverage</code>&nbp;or use <code>node_modules\.bin\grunt testCoverage</code>
 </li>

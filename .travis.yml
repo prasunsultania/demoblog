@@ -6,7 +6,7 @@ services:
 script:
 - grunt testCoveralls
 - npm run protractor
-- npm run test 
+- npm run test
 addons:
   hosts:
   - login.localhost.in
@@ -33,6 +33,8 @@ env:
   - secure: bF8AJfvfne+Eal2Y+ow4azi5Zn6lCCKo8X9GqWp4awLhdQCyguk2vX0qpVtwn34dcQlZNHUGn3HorJTJm0WJXMac6FEbpVKwW6hRE1TxAo0WyUoIDcxlpQOHBd7t+Hu5xnLLkpIyqFsYgtxEIyDNpYrH5+sWa0G/iosBf3LT2fo=
   - secure: RKCwauLdzpe0wV6TgClLBEU3N7lua7wnQLmgg9t8yLOSCT9akd9fJ0R9UmUf3MTsE+K2FgT2c6n4FqXcKp9Ht2X3Q8/QotOn76Ark15TS+oa2MnnkI3ga4v3qTFIKWfnN3psbW7lBWWpLR2HKti73QwWdxqyq38DEEwfhlviCPs=
   - secure: GVjc/AQSg6s9Xvhg2TRU/ELb5If8O/6vl8w3hS8sC93/GeAKFCsYZ3+0uf0ZAV7KQwy8E8RZarwXsWFyAhZ/4E9Cyqx37fXTqGgmJ+1S3Q9GA4mdPtcGOSkhMR5S1qOXzUJ2cy6dnAk+Q4BaPwAU50W83iXBxQiq2PtP28OStNo=
+  - secure: edc8HGfvChZmWGHn7kLAa1qoi4zpX4MtYUIAVkTXiLMdfcHVGsec7eV/TkXW3i3R+4HAdt7W9G2yeJjCiJygRl/Sl9YfaItv+NPSBjpvQncw5tbbQ5izx1h0V5y2rIqR9Zua88YqVahqXRFf0h2lZ1X+ZdlewynHwvoiEwpRWLE=
+  - secure: LDu9XzHrIv34QlyKiy8S8Zk/rxEixUdk/R0kG2NGL0FRW8LjFgZjk2X68GQEy5qnhta9jT5aAx+lIjuRt278xPEhNUxiMD0hK4L8L4eIyBlYSB7to+RPbb44S90k7B1jM82w4Fdzol6xVJSd399x15sL1o0KIFvmaPIO68o+2+E=
 after_success:
 - git fetch --unshallow
 deploy:

@@ -94,6 +94,10 @@ var BlogApp = function() {
       .use(vhost('www.prasunsultania.in', loginApp))
       .use(vhost('www.prasunsultania.info', loginApp))
       .use(vhost('prasunsultania.in', loginApp));
+      
+      if(process.env.NGROK_URI){
+        app.use(vhost(process.env.NGROK_URI, loginApp));
+      }
       //.use(vhost('localhost.in', securedApp));
 
       app.listen(process.env.NODEJS_PORT || 
