@@ -130,24 +130,31 @@ module.exports = function(grunt) {
             }
           }
         },
-        pagespeed: {
+        gpageinsights: {
           options: {
             nokey: true,
-            url: '<%= pagespeed.options.url %>'
+            url: '<%= gpageinsights.options.url %>'
           },
           local: {
             options: {
-              locale: "en_GB",
+              locale: "en_US",
+              verify_MinifyCss: 0,
+              verify_MinifyHTML: 0,
+              verify_MinifyJavaScript: 0,
+              //verify_MainResourceServerResponseTime: 1,
               strategy: "desktop",
-              url: '<%= pagespeed.local.options.url %>',
+              url: '<%= gpageinsights.local.options.url %>',
               threshold: 80
             }
           },
           mobile: {
             options: {
-              locale: "en_GB",
+              locale: "en_US",
+              verify_MinifyCss: 0,
+              verify_MinifyHTML: 0,
+              verify_MinifyJavaScript: 0,              
               strategy: "mobile",
-              url: '<%= pagespeed.mobile.options.url %>',
+              url: '<%= gpageinsights.mobile.options.url %>',
               threshold: 80
             }
           }
@@ -170,6 +177,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-env');
+  grunt.loadNpmTasks('gpageinsights');
   grunt.loadNpmTasks('grunt-mocha-istanbul');
 
   // Unit test
@@ -179,22 +187,22 @@ module.exports = function(grunt) {
   grunt.registerTask('onlytest', ['env:test', 'mochaTest']);
   // To run unit tests without code coverage report
   grunt.registerTask('test', [ 'jshint', 'csslint', 'uglify', 'cssmin',
-      'env:test', 'mochaTest', 'psi-ngrok']);
+      'env:test', 'mochaTest', 'gpageinsights-ngrok']);
   // To run unit test+coveralls - run only on Travis
   grunt.registerTask('testCoveralls', [ 'jshint', 'csslint', 'uglify',
-      'cssmin', 'mocha_istanbul:coveralls', 'psi-ngrok' ]);
+      'cssmin', 'mocha_istanbul:coveralls', 'gpageinsights-ngrok' ]);
   // To run unit with coverage report
   grunt.registerTask('testCoverage', [ 'jshint', 'csslint', 'uglify', 'cssmin',
       'env:test', 'mocha_istanbul:coverage' ]);
   
-  grunt.registerTask('psi-ngrok', 'Run pagespeed with ngrok', function() {
+  grunt.registerTask('gpageinsights-ngrok', 'Run gpageinsights with ngrok', function() {
     var done = this.async();
     var port = process.env.NODEJS_PORT || 8080;
 
     ngrok.connect({
-      authtoken: process.env.NGROK_AUTH_TOKEN,
-      subdomain: 'login',
-      httpauth: process.env.NGROK_HTTP_AUTH,
+      //authtoken: process.env.NGROK_AUTH_TOKEN,
+      //subdomain: 'login',
+      //httpauth: process.env.NGROK_HTTP_AUTH,
       port: port
     }, function(err, url) {
       if (err !== null) {
@@ -202,16 +210,16 @@ module.exports = function(grunt) {
         return done();
       }
       
-      process.env.NGROK_URI = url;
+      process.env.NGROK_URI = url.replace(/http:\/\/|https:\/\//, '');
       //start app
-      //require('./app');
+      require('./app');
+      console.log('process ngrok url: ' + process.env.NGROK_URI);
       console.log('ngrok url: ' + url);
       setTimeout(function(){
-        console.log('ngrok url repeat: ' + url);
-        grunt.config.set('pagespeed.options.url', url);
-        grunt.config.set('pagespeed.local.options.url', url);
-        grunt.config.set('pagespeed.mobile.options.url', url);
-        grunt.task.run('pagespeed');
+        grunt.config.set('gpageinsights.options.url', url);
+        grunt.config.set('gpageinsights.local.options.url', url);
+        grunt.config.set('gpageinsights.mobile.options.url', url);
+        grunt.task.run('gpageinsights');
         done();
       }, 3000);
       
