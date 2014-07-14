@@ -72,6 +72,6 @@
     "karma-firefox-launcher": "^0.1.3",
     "karma-ie-launcher": "^0.1.5",
     "gpagespeed": "0.0.7",
-    "gpageinsights": "0.0.2"
+    "gpageinsights": "0.0.4"
   }
 }
